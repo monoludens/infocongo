@@ -49,7 +49,7 @@ $(document).ready( function(){
 				<div class="four columns">
 					<span class="site-logo">
 						<a href="<?php echo home_url('/' . $lang); ?>" title="<?php echo bloginfo('name'); ?>">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" class="logo" />
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-mini.png" class="logo" />
 						</a>
 					</span>
 				</div>
