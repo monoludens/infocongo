@@ -50,6 +50,16 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'icon-font';
+	src: url('../fonts/ElegantIcons.eot');
+	src: url('../fonts/ElegantIcons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/ElegantIcons.woff') format('woff'),
+		url('../fonts/ElegantIcons.ttf') format('truetype'),
+		url('../fonts/ElegantIcons.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 /*
  * Typography
  */
@@ -128,13 +138,13 @@ header{
 	position: fixed;
 	width: 100%;
 	height: auto;
+	color: #FFF;
 	&#main-header{
-		background-color: #888;
+		background-color: #555;
 	}
 }
 
 #main-nav {
-	background-color: #000f6f;
 	width: 100%;
 	display: block;
 	nav {
@@ -146,19 +156,20 @@ header{
 			padding: 0;
 			list-style: none;
 			li {
+				font-size: 14px;
 				float: left;
 				margin: 0;
 				text-align: center;
 				a {
 					display: block;
-					text-transform: uppercase;
-					padding: 12px 20px 10px;
+					font-weight: 700;
+					padding: 20px 30px;
 					margin: 0;
-					color: #444;
+					color: #FFF;
 					border-bottom: 1px solid transparent;
 					&:hover {
 						border-color: #eee;
-						color: #666;
+						color: #F8F8F8;
 					}
 				}
 				&.current_page_item {
@@ -172,7 +183,8 @@ header{
 }
 
 #top-search{
-	position: relative;
+	position: absolute;
+	float: right;
 	form{
 
 	}
@@ -180,8 +192,19 @@ header{
 		&.hidden {
 			visibility: hidden;
 			}
-
 		} 
-	#search_icon:before { content: "\55"; font-size: 17px; left: 0; position: absolute; top: -3px; }
-	#search_icon:hover { cursor: pointer; }
+	#search_icon{ 
+		font-family: 'icon-font';
+		&:before { 
+			content: "\55"; 
+			font-size: 17px; 
+			left: 0; 
+			position: 
+			absolute; 
+			padding: 20px;
+		}
+		&hover { 
+			cursor: pointer; 
+		}
+	}
 }

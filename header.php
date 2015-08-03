@@ -55,6 +55,9 @@ $(document).ready( function(){
 				</div>
 				<div class="eight columns">
 					<section id="main-nav">
+						<nav>
+							<?php wp_nav_menu(); ?>
+						</nav>
 						<div id="top-search">
 							<span id="search_icon"></span>
 							<form role="search" method="get" class="search-form hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -67,9 +70,6 @@ $(document).ready( function(){
 							?>
 							</form>
 						</div>
-						<nav>
-							<?php wp_nav_menu(); ?>
-						</nav>
 					</section>
 					
 				</div>
