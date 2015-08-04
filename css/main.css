@@ -1,6 +1,4 @@
-/* --------------------------------------------------------
-  Custom Font
---------------------------------------------------------- */
+/* ---------------------------Font-face--------------------------- */
 @font-face {
   font-family: 'OpenSansCondensedBold';
   src: url('../fonts/opensans-condbold-webfont.eot');
@@ -36,9 +34,7 @@
   font-weight: normal;
   font-style: normal;
 }
-/*
- * Typography
- */
+/* ---------------------------Typography--------------------------- */
 h1,
 h2,
 h3,
@@ -117,9 +113,7 @@ body {
   width: 100%;
   background: #f6f6f6;
 }
-/* 
- * Header 
- */
+/* ---------------------------Header--------------------------- */
 header {
   position: fixed;
   width: 100%;
@@ -156,7 +150,7 @@ header#main-header .site-logo {
 #main-nav nav ul li a {
   display: block;
   font-weight: 700;
-  padding: 20px 30px;
+  padding: 30px 30px;
   margin: 0;
   color: #FFF;
   border-bottom: 1px solid transparent;
@@ -181,7 +175,7 @@ header#main-header .site-logo {
 #top-search #search_icon:before {
   content: "\55";
   font-size: 17px;
-  left: 0;
+  right: 0;
   position: absolute;
   padding: 20px;
 }
