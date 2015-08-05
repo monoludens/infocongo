@@ -46,32 +46,33 @@ $(document).ready( function(){
 	<div id="site-wrapper">
 		<header id="main-header">
 			<div class="container">
-				<div class="four columns">
-					<span class="site-logo">
-						<a href="<?php echo home_url('/' . $lang); ?>" title="<?php echo bloginfo('name'); ?>">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-mini.png" class="logo" />
-						</a>
-					</span>
-				</div>
-				<div class="eight columns">
-					<section id="main-nav">
-						<div id="top-search">
-							<span id="search_icon"></span>
-							<form role="search" method="get" class="search-form hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-							<?php
-								printf( '<input type="search" class="search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',
-									esc_attr_x( 'Search &hellip;', 'placeholder', '' ),
-									get_search_query(),
-									esc_attr_x( 'Search for:', 'label', '' )
-								);
-							?>
-							</form>
-						<nav>
-							<?php wp_nav_menu(); ?>
-						</nav>
-						</div>
-					</section>
-					
+				<div class="row">
+					<div class="four columns">
+						<span class="site-logo">
+							<a href="<?php echo home_url('/' . $lang); ?>" title="<?php echo bloginfo('name'); ?>">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-mini.png" class="logo" />
+							</a>
+						</span>
+					</div>
+					<div class="eight columns">
+						<section id="main-nav">
+							<div id="top-search">
+								<span id="search_icon"></span>
+								<form role="search" method="get" class="search-form hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<?php
+									printf( '<input type="search" class="search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',
+										esc_attr_x( 'Search &hellip;', 'placeholder', '' ),
+										get_search_query(),
+										esc_attr_x( 'Search for:', 'label', '' )
+									);
+								?>
+								</form>
+							</div>
+							<nav>
+								<?php wp_nav_menu(); ?>
+							</nav>
+						</section>
+					</div>
 				</div>
 			</div>
 		</header>

@@ -125,7 +125,7 @@ header#main-header {
 }
 header#main-header .site-logo {
   display: block;
-  padding: 10px 0;
+  padding: 16px 0;
 }
 #main-nav {
   width: 100%;
@@ -163,8 +163,18 @@ header#main-header .site-logo {
   background: rgba(255, 255, 255, 0.3);
 }
 #top-search {
-  position: absolute;
   float: right;
+  margin-top: 30px;
+}
+#top-search form {
+  position: absolute;
+  right: 0;
+  top: 81px;
+  padding: 10px;
+  background-color: #555;
+}
+#top-search form input {
+  margin-bottom: 0;
 }
 #top-search .search-form.hidden {
   visibility: hidden;
@@ -175,9 +185,6 @@ header#main-header .site-logo {
 #top-search #search_icon:before {
   content: "\55";
   font-size: 17px;
-  right: 0;
-  position: absolute;
-  padding: 20px;
 }
 #top-search #search_iconhover {
   cursor: pointer;
