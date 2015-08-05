@@ -16,27 +16,30 @@
 	</div>
 </div>
 
-<div id="featured-content">
-	<div class="container">
-		<div class="row">
-			<div class="six columns">
-				<?php if(has_post_thumbnail()) {                    
-				    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'featured' );
-				     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-				} ?>
-			</div>
-			<div class="one column spacer"></div>
-			<div class="five columns">
-				<h2>story title</h2>
-				<div><span class="icon author-icon"></span><p class=""><b>author:</b></p></div>
-				<div><span class="icon place-icon"></span><p class=""><b>place:</b></p></div>
-				<div><span class="icon topic-icon"></span><p class=""><b>topics:</b></p></div>
-				<p class="excerpt"></p>
-				<button></button>
+<?php if(have_posts()) : while ( have_posts() ) : the_post(); ?>
+	<div id="featured-content">
+		<div class="container">
+			<div class="row">
+				<div class="six columns">
+					<?php if(has_post_thumbnail()) {                    
+					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'featured' );
+					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+					} ?>
+				</div>
+				<div class="one column spacer"></div>
+				<div class="five columns">
+					<h2><?php the_title(); ?></h2>
+					<div><span class="icon author-icon"></span><p class=""><b>author:</b></p></div>
+					<div><span class="icon place-icon"></span><p class=""><b>place:</b></p></div>
+					<div><span class="icon topic-icon"></span><p class=""><b>topics:</b></p></div>
+					<p class="excerpt"></p>
+					<button></button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php endwhile; ?>
+<?php endif; ?>
 <div id="list-content">
 	<div class="container">
 		<div class="three columns">
