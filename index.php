@@ -23,9 +23,9 @@
 			<div class="one column spacer"></div>
 			<div class="five columns">
 				<h2>story title</h2>
-				<div><i></i><p class=""><b>author:</b></p></div>
-				<div><i></i><p class=""><b>place:</b></p></div>
-				<div><i></i><p class=""><b>topics:</b></p></div>
+				<div><span class="icon author-icon"></span><p class=""><b>author:</b></p></div>
+				<div><span class="icon place-icon"></span><p class=""><b>place:</b></p></div>
+				<div><span class="icon topic-icon"></span><p class=""><b>topics:</b></p></div>
 				<p class="excerpt"></p>
 				<button></button>
 			</div>
@@ -43,8 +43,9 @@
 		<div class="nine columns">
 			<ul>
 				<li>
-					<img src="" alt="">
-					<h5></h5>
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/examples/topics.png" alt="">
+					<h6>Understanding the DRC deforestation Conundrum</h6>
+					<span class="icon place-icon"></span>
 				</li>
 			</ul>
 		</div>

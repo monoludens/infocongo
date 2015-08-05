@@ -25,7 +25,7 @@
 <script>
 $(document).ready( function(){
 		var $et_top_menu = $( 'ul.nav' ),
-			$search_icon = $( '#search_icon' );
+			$search_icon = $( '.search-icon' );
 
 		$search_icon.click( function() {
 			var $this_el = $(this),
@@ -57,7 +57,7 @@ $(document).ready( function(){
 					<div class="eight columns">
 						<section id="main-nav">
 							<div id="top-search">
-								<span id="search_icon"></span>
+								<span class="icon search-icon"></span>
 								<form role="search" method="get" class="search-form hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<?php
 									printf( '<input type="search" class="search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',

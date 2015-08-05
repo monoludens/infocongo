@@ -113,6 +113,19 @@ body {
   width: 100%;
   background: #f6f6f6;
 }
+/* ---------------------------Icons--------------------------- */
+.icon {
+  font-style: normal;
+  font-family: 'icon-font';
+}
+.icon.search-icon:before {
+  content: "\55";
+  font-size: 17px;
+}
+.icon.place-icon:before {
+  content: "\55";
+  font-size: 17px;
+}
 /* ---------------------------Header--------------------------- */
 header {
   position: fixed;
@@ -179,16 +192,6 @@ header#main-header .site-logo {
 }
 #top-search .search-form.hidden {
   visibility: hidden;
-}
-#top-search #search_icon {
-  font-family: 'icon-font';
-}
-#top-search #search_icon:before {
-  content: "\55";
-  font-size: 17px;
-}
-#top-search #search_iconhover {
-  cursor: pointer;
 }
 #content {
   padding-top: 81px;

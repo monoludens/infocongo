@@ -130,6 +130,23 @@ body {
 }
 
 
+/* ---------------------------Icons--------------------------- */
+.icon{
+	font-style: normal;
+	font-family: 'icon-font';
+	&.search-icon{ 
+			&:before { 
+				content: "\55"; 
+				font-size: 17px; 
+			}
+		}
+		&.place-icon{ 
+		&:before { 
+			content: "\55"; 
+			font-size: 17px; 
+		}
+	}
+}
 
 /* ---------------------------Header--------------------------- */
 
@@ -204,17 +221,8 @@ header{
 			visibility: hidden;
 			}
 		} 
-	#search_icon{ 
-		font-family: 'icon-font';
-		&:before { 
-			content: "\55"; 
-			font-size: 17px; 
-		}
-		&hover { 
-			cursor: pointer; 
-		}
 	}
-}
+
 
 #content{
 	padding-top: 81px;
