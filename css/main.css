@@ -189,3 +189,10 @@ header#main-header .site-logo {
 #top-search #search_iconhover {
   cursor: pointer;
 }
+#content {
+  padding-top: 81px;
+}
+.spacer:after {
+  content: '.';
+  visibility: hidden;
+}
