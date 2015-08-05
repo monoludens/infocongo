@@ -1,17 +1,17 @@
 <?php get_header(); ?>
 
 
-<div id="slider">
+<div id="intro" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/examples/intro-header.png)">
 	<div class="container">
 		<div class="row">
-			<div class="six columns"></div>
-			<div class="six columns slider-logo"><img src="" alt=""></div>
-			<div class="six columns"></div>
+			<div class="three columns spacer"></div>
+			<div class="six columns slider-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-intro.png" alt=""></div>
+			<div class="three columns spacer"></div>
 		</div>
 		<div class="row">
-			<div class="six columns"></div>
+			<div class="three columns spacer"></div>
 			<div class="six columns slider-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </div>
-			<div class="six columns"></div>
+			<div class="three columns spacer"></div>
 		</div>
 	</div>
 </div>
@@ -19,7 +19,7 @@
 <div id="featured-content">
 	<div class="container">
 		<div class="row">
-			<div class="six columns">a<img src="" alt=""></div>
+			<div class="six columns"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/examples/featured.png" alt=""></div>
 			<div class="one column spacer"></div>
 			<div class="five columns">
 				<h2>story title</h2>

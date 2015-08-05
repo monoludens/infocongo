@@ -119,6 +119,7 @@ header {
   width: 100%;
   height: auto;
   color: #FFF;
+  z-index: 99;
 }
 header#main-header {
   background-color: #555;
@@ -195,4 +196,7 @@ header#main-header .site-logo {
 .spacer:after {
   content: '.';
   visibility: hidden;
+}
+#intro {
+  height: 320px;
 }
