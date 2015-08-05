@@ -95,3 +95,9 @@ function infocongo_map_data($data, $map) {
   return $data;
 }
 add_filter('jeo_map_data', 'infocongo_map_data', 10, 2);
+
+// image sizes
+add_action( 'after_setup_theme', 'images_theme_setup' );
+function images_theme_setup() {
+  add_image_size( 'featured', 500, 464, array( 'center', 'top' );
+}
