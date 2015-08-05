@@ -100,4 +100,6 @@ add_filter('jeo_map_data', 'infocongo_map_data', 10, 2);
 add_action( 'after_setup_theme', 'images_theme_setup' );
 function images_theme_setup() {
   add_image_size( 'featured', 500, 464, array( 'center', 'top' ));
+  add_image_size( 'home-list', 300, 200, array( 'center', 'top' ));
+  add_image_size( 'home-slider', 540, 200, array( 'center', 'top' ));
 }

@@ -15,7 +15,7 @@
 		</div>
 	</div>
 </div>
-<?php $first_query = new WP_Query('cat=featured&posts_per_page=1');
+<?php $first_query = new WP_Query('cat=3&posts_per_page=1');
 	while($first_query->have_posts()) : $first_query->the_post();
 ?>
 	<div id="featured-content">
@@ -41,7 +41,9 @@
 	</div>
 <?php endwhile; ?>
 <?php wp_reset_postdata(); ?>
-<div id="list-content">
+
+<?php $second_query = new WP_Query('cat=-3&posts_per_page=4'); ?>
+<div class="list-content">
 	<div class="container">
 		<div class="three columns">
 			<h2>Topics:</h2>
@@ -51,14 +53,20 @@
 		</div>
 		<div class="nine columns">
 			<ul>
-				<li>
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/examples/topics.png" alt="">
-					<h6>Understanding the DRC deforestation Conundrum</h6>
+			<?php while($second_query->have_posts()) : $second_query->the_post(); ?>
+				<li class="home-post-list">
+					<?php if(has_post_thumbnail()) {                    
+					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
+					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+					} ?>
+					<h6><?php the_title(); ?></h6>
 					<span class="icon_pin_alt"></span>
 				</li>
+				<?php endwhile; ?>
 			</ul>
 		</div>
 	</div>
 </div>
 
+<?php wp_reset_postdata(); ?>
 <?php get_footer(); ?>

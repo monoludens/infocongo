@@ -203,3 +203,15 @@ header#main-header .site-logo {
 #intro {
   height: 320px;
 }
+.list-content ul li.home-post-list {
+  width: 45.33333333333%;
+  float: left;
+}
+.list-content ul li.home-post-list:nth-child(odd) {
+  margin-right: 4.66666666667%;
+  margin-left: 0;
+}
+.list-content ul li.home-post-list:nth-child(even) {
+  margin-right: 0;
+  margin-left: 4.66666666667%;
+}
