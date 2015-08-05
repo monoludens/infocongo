@@ -30,11 +30,11 @@
 				<div class="one column spacer"></div>
 				<div class="five columns">
 					<h2><?php the_title(); ?></h2>
-					<div><span class="icon author-icon"></span><p class=""><b>author:</b></p></div>
-					<div><span class="icon place-icon"></span><p class=""><b>place:</b></p></div>
-					<div><span class="icon topic-icon"></span><p class=""><b>topics:</b></p></div>
+					<div><span class="icon_pencil"></span><span class=""><b>author:</b></span></div>
+					<div><span class="icon_pin_alt"></span><span class=""><b>place:</b></span></div>
+					<div><span class="icon_tag_alt"></span><span class=""><b>topics:</b></span></div>
 					<p class="excerpt"></p>
-					<button></button>
+					<button>Read More</button>
 				</div>
 			</div>
 		</div>

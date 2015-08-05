@@ -58,7 +58,7 @@ $(document).ready( function(){
 					<div class="eight columns">
 						<section id="main-nav">
 							<div id="top-search">
-								<span class="icon search-icon"></span>
+								<span class="icon_search"></span>
 								<form role="search" method="get" class="search-form hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<?php
 									printf( '<input type="search" class="search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',

@@ -28,7 +28,7 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'icon-font';
+  font-family: 'ElegantIcons';
   src: url('../fonts/ElegantIcons.eot');
   src: url('../fonts/ElegantIcons.eot?#iefix') format('embedded-opentype'), url('../fonts/ElegantIcons.woff') format('woff'), url('../fonts/ElegantIcons.ttf') format('truetype'), url('../fonts/ElegantIcons.svg') format('svg');
   font-weight: normal;
@@ -114,17 +114,10 @@ body {
   background: #f6f6f6;
 }
 /* ---------------------------Icons--------------------------- */
-.icon {
-  font-style: normal;
-  font-family: 'icon-font';
-}
-.icon.search-icon:before {
-  content: "\55";
-  font-size: 17px;
-}
-.icon.place-icon:before {
-  content: "\01d";
-  font-size: 17px;
+.icon_pencil,
+.icon_pin_alt,
+.icon_tag_alt {
+  font-size: 1.5rem;
 }
 /* ---------------------------Header--------------------------- */
 header {
@@ -192,6 +185,9 @@ header#main-header .site-logo {
 }
 #top-search .search-form.hidden {
   visibility: hidden;
+}
+#top-search .icon_search {
+  font-size: 1.5rem;
 }
 #content {
   padding-top: 81px;

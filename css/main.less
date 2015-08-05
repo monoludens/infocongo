@@ -51,7 +51,7 @@
 }
 
 @font-face {
-	font-family: 'icon-font';
+	font-family: 'ElegantIcons';
 	src: url('../fonts/ElegantIcons.eot');
 	src: url('../fonts/ElegantIcons.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/ElegantIcons.woff') format('woff'),
@@ -133,23 +133,9 @@ body {
 
 /* ---------------------------Icons--------------------------- */
 
-.icon{
-	font-style: normal;
-	font-family: 'icon-font';
-	&.search-icon{ 
-		&:before { 
-			content: "\55"; 
-			font-size: 17px; 
-		}
-	}
-	&.place-icon{ 
-		&:before { 
-			content: "\01d"; 
-			font-size: 17px; 
-		}
-	}
+.icon_pencil, .icon_pin_alt, .icon_tag_alt {
+	font-size: 1.5rem
 }
-
 /* ---------------------------Header--------------------------- */
 
 header{
@@ -222,6 +208,9 @@ header{
 		&.hidden {
 			visibility: hidden;
 		}
+	}
+	.icon_search{
+		font-size: 1.5rem;
 	} 
 }
 
