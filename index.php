@@ -15,8 +15,9 @@
 		</div>
 	</div>
 </div>
-
-<?php if(have_posts()) : while ( have_posts() ) : the_post(); ?>
+<?php $first_query = new WP_Query('cat=featured&posts_per_page=1');
+	while($first_query->have_posts()) : $first_query->the_post();
+?>
 	<div id="featured-content">
 		<div class="container">
 			<div class="row">
@@ -39,7 +40,7 @@
 		</div>
 	</div>
 <?php endwhile; ?>
-<?php endif; ?>
+<?php wp_reset_postdata(); ?>
 <div id="list-content">
 	<div class="container">
 		<div class="three columns">
