@@ -24,7 +24,7 @@
 					} ?>
 				</div>
 				<div class="one column spacer"></div>
-				<div class="five columns">
+				<div class="five columns offset-by-one column">
 					<h2><?php the_title(); ?></h2>
 					<div><span class="icon_pencil"></span><span class=""><b>author:</b></span></div>
 					<div><span class="icon_pin_alt"></span><span class=""><b>place:</b></span></div>
