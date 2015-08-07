@@ -22,6 +22,10 @@
 	</div>
 </div>	
 
-<div class="map-container"><div id="map_<?php echo jeo_get_map_id(); ?>" class="map"></div></div>
+<div class="map-container">
+	<div id="map_<?php echo jeo_get_map_id(); ?>" class="map">
+		<?php get_template_part('stage', 'map'); ?>
+	</div>
+</div>
 
 <?php get_footer(); ?>

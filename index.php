@@ -55,7 +55,7 @@
 					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} ?>
-					<h6><?php the_title(); ?></h6>
+					<h6> <a href=" <?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 					<span class="icon_pin_alt"></span>
 				</li>
 				<?php endwhile; ?>
