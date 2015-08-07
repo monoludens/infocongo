@@ -64,5 +64,31 @@
 	</div>
 </div>
 
+<?php $third_query = new WP_Query('cat=-3&posts_per_page=4'); ?>
+<div class="list-content">
+	<div class="container">
+		<div class="three columns">
+			<h2>Countries:</h2>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+		<div class="nine columns">
+			<ul>
+			<?php while($third_query->have_posts()) : $third_query->the_post(); ?>
+				<li class="home-post-list">
+					<?php if(has_post_thumbnail()) {                    
+					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
+					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+					} ?>
+					<h6><?php the_title(); ?></h6>
+					<span class="icon_pin_alt"></span>
+				</li>
+				<?php endwhile; ?>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <?php wp_reset_postdata(); ?>
 <?php get_footer(); ?>
