@@ -211,6 +211,20 @@ header#main-header .site-logo {
   margin-right: 0;
   margin-left: 4.66666666667%;
 }
+/* ---------------------------body--------------------------- */
+#intro .intro-logo {
+  padding: 70px 0 30px;
+  text-align: center;
+}
+#intro .intro-text {
+  padding-top: 10px;
+}
+#intro .intro-text p {
+  text-align: center;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 30px;
+}
 /* ---------------------------Footer--------------------------- */
 #site-footer {
   width: 100%;

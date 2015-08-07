@@ -7,7 +7,7 @@
 			<div class="six columns offset-by-three column intro-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-intro.png" alt=""></div>
 		</div>
 		<div class="row">
-			<div class="six columns offset-by-three column intro-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </div>
+			<div class="six columns offset-by-three column intro-text"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p></div>
 		</div>
 	</div>
 </div>
