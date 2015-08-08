@@ -120,14 +120,12 @@ body {
   font-size: 1.5rem;
 }
 /* ---------------------------Header--------------------------- */
-header {
+header#main-header {
   position: fixed;
   width: 100%;
   height: auto;
   color: #FFF;
   z-index: 99;
-}
-header#main-header {
   background-color: #555;
 }
 header#main-header .site-logo {
@@ -244,4 +242,79 @@ header#main-header .site-logo {
 }
 #site-footer #site-info p.footer-social-icons {
   float: right;
+}
+/*----------------map----------------*/
+.stage-map {
+  margin: 0;
+  height: 480px;
+  position: relative;
+  z-index: 100;
+}
+.single-dataset #stage .post-header h2 {
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+  text-transform: uppercase;
+}
+.single-dataset #stage .post-header h2 a {
+  color: #666;
+}
+.single-dataset #stage .post-header h1.title {
+  width: auto;
+  max-width: 100%;
+}
+.single-dataset .preview-container iframe {
+  width: 100%;
+  height: 500px;
+}
+.single-dataset .download {
+  font-size: 20px;
+  line-height: 40px;
+  display: block;
+  text-align: center;
+}
+.single-dataset .license-name,
+.single-dataset .source-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+.single-dataset .license-name a,
+.single-dataset .source-name a {
+  color: #000;
+}
+.single-dataset .sidebar-item {
+  padding: 20px;
+  background: #fff;
+}
+.single-dataset .sidebar-item h3 {
+  margin-bottom: 20px;
+}
+.single-dataset .sidebar-item li {
+  width: 50%;
+  float: left;
+  padding: 0 15px 0 0;
+  margin: 0 0 10px 0;
+}
+.map-container .map {
+  background-color: #111;
+  position: relative;
+}
+.map-container .map {
+  width: 100%;
+  height: 100%;
+}
+.map-container {
+  overflow: hidden;
+}
+.content-map,
+.map-container {
+  position: relative;
+  height: 100%;
+}
+#stage .stage-map {
+  margin: 0px;
+  height: 480px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 100;
 }
