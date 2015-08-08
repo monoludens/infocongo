@@ -42,11 +42,27 @@
 <div class="list-content">
 	<div class="container">
 		<div class="three columns">
-			<h2>Topics:</h2>
-			<ul>
-				<li></li>
-			</ul>
-		</div>
+			<h2><?php echo __( 'Topics' ) ?></h2>
+			<?php 
+			    $args = array(
+				'show_option_all'    => '',
+				'orderby'            => 'name',
+				'order'              => 'ASC',
+				'style'              => 'list',
+				'hide_empty'         => 1,
+				'use_desc_for_title' => 1,
+				'title_li'           => __( '' ),
+				'number'             => null,
+				'echo'               => 1,
+				'depth'              => 0,
+				'current_category'   => 1,
+				'pad_counts'         => 0,
+				'taxonomy'           => 'Topic',
+				'walker'             => null
+			    );
+			    wp_list_categories( $args ); 
+			?>
+					</div>
 		<div class="nine columns">
 			<ul>
 			<?php while($second_query->have_posts()) : $second_query->the_post(); ?>
@@ -68,10 +84,26 @@
 <div class="list-content">
 	<div class="container">
 		<div class="three columns">
-			<h2>Countries:</h2>
-			<ul>
-				<li></li>
-			</ul>
+			<h2><?php echo __( 'Countries' ) ?></h2>
+			<?php 
+			    $args = array(
+				'show_option_all'    => '',
+				'orderby'            => 'name',
+				'order'              => 'ASC',
+				'style'              => 'list',
+				'hide_empty'         => 1,
+				'use_desc_for_title' => 1,
+				'title_li'           => __( '' ),
+				'number'             => null,
+				'echo'               => 1,
+				'depth'              => 0,
+				'current_category'   => 1,
+				'pad_counts'         => 0,
+				'taxonomy'           => 'Country',
+				'walker'             => null
+			    );
+			    wp_list_categories( $args ); 
+			?>
 		</div>
 		<div class="nine columns">
 			<ul>
