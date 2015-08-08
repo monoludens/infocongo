@@ -1,5 +1,14 @@
 <?php get_header(); ?>
 
+<section id="stage">
+				<div class="container">
+					<div class="twelve columns">
+						<h1 class="title"><?php the_title(); ?></h1>
+						<?php get_template_part('stage', 'map'); ?>
+					</div>
+				</div>
+			</section>
+
 <?php if(have_posts()) : the_post(); ?>
 
 	<article class="single-post">
@@ -19,14 +28,10 @@
 			</div>
 		</section>
 
+		
+
 		<section id="content">
-			<div class="container row">
-				<div class="nine columns">
-					<div class="post-primary-image">
-						<?php if(has_post_thumbnail()) the_post_thumbnail(); ?>
-					</div>
-				</div>
-			</div>
+
 			<div class="container row">
 				<div class="two columns">
 					<div class="post-interactivity">

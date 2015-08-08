@@ -157,7 +157,7 @@ function custom_taxonomy() {
     'show_in_nav_menus'          => true,
     'show_tagcloud'              => true,
   );
-  register_taxonomy( 'Topic', array( 'post' ), $args );
+  register_taxonomy( 'topic', array( 'post' ), $args );
 
   $labels = array(
     'name'                       => _x( 'Countries', 'Taxonomy General Name', 'infocongo' ),
@@ -187,12 +187,12 @@ function custom_taxonomy() {
     'show_in_nav_menus'          => true,
     'show_tagcloud'              => true,
   );
-  register_taxonomy( 'Country', array( 'post' ), $args );
+  register_taxonomy( 'country', array( 'post' ), $args );
 
 
   $labels = array( 
-    'name'                       => __('Publishers', 'infocongo'),
-    'singular_name'              => __('Publisher', 'infocongo'),
+    'name'                       => __('Publishers', 'Taxonomy General Name', 'infocongo'),
+    'singular_name'              => __('Publisher', 'Taxonomy Singular Name', 'infocongo'),
     'search_items'               => __('Search publishers', 'infocongo'),
     'popular_items'              => __('Popular publishers', 'infocongo'),
     'all_items'                  => __('All publishers', 'infocongo'),
