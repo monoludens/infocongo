@@ -38,7 +38,7 @@
 <?php endwhile; ?>
 <?php wp_reset_postdata(); ?>
 
-<?php $second_query = new WP_Query('cat=-3&posts_per_page=4'); ?>
+<?php $second_query = new WP_Query( array( 'taxonomy' => 'Topic', 'term' => 'Deforestation', 'posts_per_page' => 4)); ?>
 <div class="list-content">
 	<div class="container">
 		<div class="three columns">
