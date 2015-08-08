@@ -72,7 +72,28 @@ add_action('jeo_markers_enqueue_scripts', 'infocongo_markers_scripts', 20);
 // Filter to change posts GeoJSON data (also changes the GeoJSON API output)
 function infocongo_marker_data($data, $post) {
 
-  // Change $data here
+global $post;
+
+  $permalink = $data['url'];
+
+  if(function_exists('qtrans_getLanguage'))
+    $permalink = add_query_arg(array('lang' => qtrans_getLanguage()), $permalink);
+
+  $data['permalink'] = $permalink;
+  $data['url'] = $permalink;
+  $data['content'] = get_the_excerpt();
+  $data['slideshow'] = infoamazonia_get_content_media();
+  if(get_post_meta($post->ID, 'geocode_zoom', true))
+    $data['zoom'] = get_post_meta($post->ID, 'geocode_zoom', true);
+
+  // source
+  $publishers = get_the_terms($post->ID, 'publisher');
+  if($publishers) {
+    $publisher = array_shift($publishers);
+    $data['source'] = apply_filters('single_cat_title', $publisher->name);
+  }
+  // thumbnail
+  $data['thumbnail'] = infoamazonia_get_thumbnail();
 
   return $data;
 }
@@ -109,23 +130,23 @@ function images_theme_setup() {
 function custom_taxonomy() {
 
   $labels = array(
-    'name'                       => _x( 'Topics', 'Taxonomy General Name', 'text_domain' ),
-    'singular_name'              => _x( 'Topic', 'Taxonomy Singular Name', 'text_domain' ),
-    'menu_name'                  => __( 'Topics', 'text_domain' ),
-    'all_items'                  => __( 'All Topics', 'text_domain' ),
-    'parent_item'                => __( 'Parent Topics', 'text_domain' ),
-    'parent_item_colon'          => __( 'Parent Topic:', 'text_domain' ),
-    'new_item_name'              => __( 'New Topic Name', 'text_domain' ),
-    'add_new_item'               => __( 'Add New Topic', 'text_domain' ),
-    'edit_item'                  => __( 'Edit Topic', 'text_domain' ),
-    'update_item'                => __( 'Update Topic', 'text_domain' ),
-    'view_item'                  => __( 'View Topic', 'text_domain' ),
-    'separate_items_with_commas' => __( 'Separate Topic with commas', 'text_domain' ),
-    'add_or_remove_items'        => __( 'Add or remove Topic', 'text_domain' ),
-    'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
-    'popular_items'              => __( 'Popular Topics', 'text_domain' ),
-    'search_items'               => __( 'Search Topics', 'text_domain' ),
-    'not_found'                  => __( 'Not Found', 'text_domain' ),
+    'name'                       => _x( 'Topics', 'Taxonomy General Name', 'infocongo' ),
+    'singular_name'              => _x( 'Topic', 'Taxonomy Singular Name', 'infocongo' ),
+    'menu_name'                  => __( 'Topics', 'infocongo' ),
+    'all_items'                  => __( 'All Topics', 'infocongo' ),
+    'parent_item'                => __( 'Parent Topics', 'infocongo' ),
+    'parent_item_colon'          => __( 'Parent Topic:', 'infocongo' ),
+    'new_item_name'              => __( 'New Topic Name', 'infocongo' ),
+    'add_new_item'               => __( 'Add New Topic', 'infocongo' ),
+    'edit_item'                  => __( 'Edit Topic', 'infocongo' ),
+    'update_item'                => __( 'Update Topic', 'infocongo' ),
+    'view_item'                  => __( 'View Topic', 'infocongo' ),
+    'separate_items_with_commas' => __( 'Separate Topic with commas', 'infocongo' ),
+    'add_or_remove_items'        => __( 'Add or remove Topic', 'infocongo' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'infocongo' ),
+    'popular_items'              => __( 'Popular Topics', 'infocongo' ),
+    'search_items'               => __( 'Search Topics', 'infocongo' ),
+    'not_found'                  => __( 'Not Found', 'infocongo' ),
   );
   $args = array(
     'labels'                     => $labels,
@@ -139,23 +160,23 @@ function custom_taxonomy() {
   register_taxonomy( 'Topic', array( 'post' ), $args );
 
   $labels = array(
-    'name'                       => _x( 'Countries', 'Taxonomy General Name', 'text_domain' ),
-    'singular_name'              => _x( 'Country', 'Taxonomy Singular Name', 'text_domain' ),
-    'menu_name'                  => __( 'Countries', 'text_domain' ),
-    'all_items'                  => __( 'All Countries', 'text_domain' ),
-    'parent_item'                => __( 'Parent Countries', 'text_domain' ),
-    'parent_item_colon'          => __( 'Parent Country:', 'text_domain' ),
-    'new_item_name'              => __( 'New Country Name', 'text_domain' ),
-    'add_new_item'               => __( 'Add New Country', 'text_domain' ),
-    'edit_item'                  => __( 'Edit Country', 'text_domain' ),
-    'update_item'                => __( 'Update Country', 'text_domain' ),
-    'view_item'                  => __( 'View Country', 'text_domain' ),
-    'separate_items_with_commas' => __( 'Separate Country with commas', 'text_domain' ),
-    'add_or_remove_items'        => __( 'Add or remove Country', 'text_domain' ),
-    'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
-    'popular_items'              => __( 'Popular Countries', 'text_domain' ),
-    'search_items'               => __( 'Search Countries', 'text_domain' ),
-    'not_found'                  => __( 'Not Found', 'text_domain' ),
+    'name'                       => _x( 'Countries', 'Taxonomy General Name', 'infocongo' ),
+    'singular_name'              => _x( 'Country', 'Taxonomy Singular Name', 'infocongo' ),
+    'menu_name'                  => __( 'Countries', 'infocongo' ),
+    'all_items'                  => __( 'All Countries', 'infocongo' ),
+    'parent_item'                => __( 'Parent Countries', 'infocongo' ),
+    'parent_item_colon'          => __( 'Parent Country:', 'infocongo' ),
+    'new_item_name'              => __( 'New Country Name', 'infocongo' ),
+    'add_new_item'               => __( 'Add New Country', 'infocongo' ),
+    'edit_item'                  => __( 'Edit Country', 'infocongo' ),
+    'update_item'                => __( 'Update Country', 'infocongo' ),
+    'view_item'                  => __( 'View Country', 'infocongo' ),
+    'separate_items_with_commas' => __( 'Separate Country with commas', 'infocongo' ),
+    'add_or_remove_items'        => __( 'Add or remove Country', 'infocongo' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'infocongo' ),
+    'popular_items'              => __( 'Popular Countries', 'infocongo' ),
+    'search_items'               => __( 'Search Countries', 'infocongo' ),
+    'not_found'                  => __( 'Not Found', 'infocongo' ),
   );
   $args = array(
     'labels'                     => $labels,
@@ -168,5 +189,38 @@ function custom_taxonomy() {
   );
   register_taxonomy( 'Country', array( 'post' ), $args );
 
+
+  $labels = array( 
+    'name'                       => __('Publishers', 'infocongo'),
+    'singular_name'              => __('Publisher', 'infocongo'),
+    'search_items'               => __('Search publishers', 'infocongo'),
+    'popular_items'              => __('Popular publishers', 'infocongo'),
+    'all_items'                  => __('All publishers', 'infocongo'),
+    'parent_item'                => __('Parent publisher', 'infocongo'),
+    'parent_item_colon'          => __('Parent publisher:', 'infocongo'),
+    'edit_item'                  => __('Edit publisher', 'infocongo'),
+    'update_item'                => __('Update publisher', 'infocongo'),
+    'add_new_item'               => __('Add new publisher', 'infocongo'),
+    'new_item_name'              => __('New publisher name', 'infocongo'),
+    'separate_items_with_commas' => __('Separate publishers with commas', 'infocongo'),
+    'add_or_remove_items'        => __('Add or remove publishers', 'infocongo'),
+    'choose_from_most_used'      => __('Choose from most used publishers', 'infocongo'),
+    'menu_name'                  => __('Publishers', 'infocongo')
+  );
+
+  $args = array( 
+    'labels'                     => $labels,
+    'public'                     => true,
+    'show_in_nav_menus'          => true,
+    'show_ui'                    => true,
+    'show_tagcloud'              => true,
+    'hierarchical'               => true,
+    'rewrite'                    => array('slug' => 'publisher', 'with_front' => false),
+    'query_var'                  => 'publisher'
+  );
+
+  register_taxonomy('publisher', array('post'), $args);
+
 }
 add_action( 'init', 'custom_taxonomy', 0 );
+
