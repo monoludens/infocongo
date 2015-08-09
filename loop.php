@@ -3,14 +3,7 @@
 		<li id="post-<?php the_ID(); ?>" <?php post_class('post-item four columns'); ?>>
 			<article>
 				<header class="post-header">
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php
-						if(has_post_thumbnail())
-							the_post_thumbnail('post-thumb');
-						else
-							echo '<img src="' . get_post_meta($post->ID, 'picture', true) . '" />';
-						?>
-					</a>
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<p class="meta clearfix">
 						<span class="date">
@@ -24,7 +17,7 @@
 								<span class="lsf">clip</span>
 								<span class="publisher-content">
 									<?php
-									echo array_shift(get_the_terms($post->ID, 'publisher'))->name;
+									echo get_the_terms($post->ID, 'topic');
 									?>
 								</span>
 							</span>
