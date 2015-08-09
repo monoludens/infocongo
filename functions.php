@@ -127,7 +127,7 @@ function images_theme_setup() {
 
 
 // Register Custom Taxonomy
-function custom_taxonomy() {
+function ic_custom_taxonomy() {
 
   $labels = array(
     'name'                       => _x( 'Topics', 'Taxonomy General Name', 'infocongo' ),
@@ -222,12 +222,12 @@ function custom_taxonomy() {
   register_taxonomy('publisher', array('post'), $args);
 
 }
-add_action( 'init', 'custom_taxonomy', 0 );
+add_action( 'init', 'ic_custom_taxonomy', 0 );
 
 
 // post views
-function wpb_set_post_views($postID) {
-    $count_key = 'wpb_post_views_count';
+function ic_set_post_views($postID) {
+    $count_key = 'ic_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
     if($count==''){
         $count = 0;
@@ -241,13 +241,13 @@ function wpb_set_post_views($postID) {
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 // add post views tracker on wp_head
-function wpb_track_post_views ($post_id) {
+function ic_track_post_views ($post_id) {
     if ( !is_single() ) return;
     if ( empty ( $post_id) ) {
         global $post;
         $post_id = $post->ID;    
     }
-    wpb_set_post_views($post_id);
+    ic_set_post_views($post_id);
 }
-add_action( 'wp_head', 'wpb_track_post_views');
+add_action( 'wp_head', 'ic_track_post_views');
 
