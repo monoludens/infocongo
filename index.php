@@ -38,11 +38,11 @@
 <?php endwhile; ?>
 <?php wp_reset_postdata(); ?>
 
-<?php $second_query = new WP_Query( array( 'taxonomy' => 'Topic', 'term' => 'Deforestation', 'posts_per_page' => 4)); ?>
+<?php $second_query = new WP_Query( array( 'taxonomy' => 'topic', 'term' => 'Deforestation', 'posts_per_page' => 4)); ?>
 <div class="list-content">
 	<div class="container">
 		<div class="three columns">
-			<h2><?php echo __( 'Topics' ) ?></h2>
+			<h2><?php _e( 'Topics' ) ?></h2>
 			<?php 
 			    $args = array(
 				'show_option_all'    => '',
@@ -57,7 +57,7 @@
 				'depth'              => 0,
 				'current_category'   => 1,
 				'pad_counts'         => 0,
-				'taxonomy'           => 'Topic',
+				'taxonomy'           => 'topic',
 				'walker'             => null
 			    );
 			    wp_list_categories( $args ); 
@@ -72,7 +72,7 @@
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} ?>
 					<h6> <a href=" <?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-					<span class="icon_pin_alt"><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+					<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
 				</li>
 				<?php endwhile; ?>
 			</ul>
@@ -80,11 +80,11 @@
 	</div>
 </div>
 
-<?php $third_query = new WP_Query('cat=-3&posts_per_page=4'); ?>
+<?php $third_query = new WP_Query( array( 'taxonomy' => 'country', 'term' => 'Cameroon', 'posts_per_page' => 4)); ?>
 <div class="list-content">
 	<div class="container">
 		<div class="three columns">
-			<h2><?php echo __( 'Countries' ) ?></h2>
+			<h2><?php _e( 'Countries' ) ?></h2>
 			<?php 
 			    $args = array(
 				'show_option_all'    => '',
@@ -99,7 +99,7 @@
 				'depth'              => 0,
 				'current_category'   => 1,
 				'pad_counts'         => 0,
-				'taxonomy'           => 'Country',
+				'taxonomy'           => 'country',
 				'walker'             => null
 			    );
 			    wp_list_categories( $args ); 
@@ -123,4 +123,38 @@
 </div>
 
 <?php wp_reset_postdata(); ?>
+
+<?php $fourth_query = new WP_Query(array( 'posts_per_page' => 4, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) ); ?>
+
+<div class="popular-content">
+	<div class="container">
+			<div class="three columns">
+				<h2>Popular posts</h2>
+				<p>lorem ipsum dolor sit amet</p>
+				<a href="" class="button">Submit a story</a>
+			</div>
+		<div class="one column spacer"></div>
+		<?php while( $fourth_query->have_posts() ) : $fourth_query->the_post(); ?>
+			<div id="home-slider" class="seven columns">
+				<div class="popular-thumb">
+				<?php $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-slider' );
+				    echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+			    ?>
+			</div>
+			<div class="slider-content">
+				<h2><?php the_title(); ?></h2>
+				<p class="excerpt"><?php the_excerpt(); ?></p>
+			</div>
+			<div class="slider-meta">
+				<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
+				<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
+				<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
+			</div>
+			</div>
+		<?php endwhile; ?>
+	</div>
+</div>
+<?php wp_reset_postdata(); ?>
+
+
 <?php get_footer(); ?>
