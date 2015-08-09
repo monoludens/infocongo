@@ -29,8 +29,8 @@
 					<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
 					<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
 					<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
-					<p class="excerpt"></p>
-					<button>Read More</button>
+					<p class="excerpt"><?php the_excerpt(); ?></p>
+					<a class="button read-more" href="<?php the_permalink(); ?>"><?php _e('Read more', 'infocongo'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -114,7 +114,7 @@
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} ?>
 					<h6><?php the_title(); ?></h6>
-					<span class="icon_pin_alt"><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+					<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
 				</li>
 				<?php endwhile; ?>
 			</ul>
