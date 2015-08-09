@@ -25,7 +25,7 @@
 				</div>
 				<div class="one column spacer"></div>
 				<div class="five columns offset-by-one column">
-					<h2><?php the_title(); ?></h2>
+					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
 					<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
 					<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
@@ -71,7 +71,7 @@
 					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} ?>
-					<h6> <a href=" <?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+					<h6> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 					<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
 				</li>
 				<?php endwhile; ?>
@@ -113,7 +113,7 @@
 					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} ?>
-					<h6><?php the_title(); ?></h6>
+					<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 					<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
 				</li>
 				<?php endwhile; ?>
@@ -142,7 +142,7 @@
 			    ?>
 			</div>
 			<div class="slider-content">
-				<h2><?php the_title(); ?></h2>
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<p class="excerpt"><?php the_excerpt(); ?></p>
 			</div>
 			<div class="slider-meta">
