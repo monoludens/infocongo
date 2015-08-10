@@ -251,3 +251,6 @@ function ic_track_post_views ($post_id) {
 }
 add_action( 'wp_head', 'ic_track_post_views');
 
+register_nav_menus( array(
+  'footer_menu' => 'Footer Menu',
+) );
