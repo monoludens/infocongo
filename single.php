@@ -10,27 +10,22 @@
 	</div>
 
 		
-	<article class="single-post">
+	<article id="single-post">
 		<section id="content">	
 			<div class="container">
-				<div class="row">
+				<div class="row post-header">
 					<div class="twelve columns">
-						<div class="post-content">
-							<div class="post-description">
-								<h1><?php the_title(); ?></h1>
-								<p class="post-excerpt"><?php the_excerpt(); ?></p>
-							</div>
-						</div>
+						<h1><?php the_title(); ?></h1>
+						<p class="post-excerpt"><?php the_excerpt(); ?></p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="four columns"><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
+				<div class="row post-meta">
+					<div class="four columns"><span class="icon_pencil"></span><span class=""><b><?php echo get_the_date(); ?> | <?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
 					<div class="four columns"><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
 					<div class="four columns"><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
 				</div>
-				<div class="row">
-					<div class="twelve columns">
-						<p class="date"><strong><?php echo get_the_date(); ?></strong></p>
+				<div class="row post-content">
+					<div class="ten offset-by-one columns">
 						<?php the_content(); ?>
 					</div>
 					<script type="text/javascript">
