@@ -70,7 +70,7 @@ $(document).ready( function(){
 								</form>
 							</div>
 							<nav>
-								<?php wp_nav_menu(); ?>
+								<?php wp_nav_menu( array( 'theme_location' => 'header_menu' ) ); ?>
 							</nav>
 						</section>
 					</div>
