@@ -11,7 +11,7 @@
 		</div>
 	</div>
 </div>
-<?php $first_query = new WP_Query('cat=3&posts_per_page=1');
+<?php $first_query = new WP_Query('cat=Featured&posts_per_page=1');
 	while($first_query->have_posts()) : $first_query->the_post();
 ?>
 	<div id="featured-content">
