@@ -157,8 +157,8 @@ header#main-header .site-logo {
 }
 #main-nav nav ul li a {
   display: block;
-  font-weight: 700;
-  padding: 30px 30px;
+  font-weight: 400;
+  padding: 30px 22px;
   margin: 0;
   color: #FFF;
   border-bottom: 1px solid transparent;
@@ -200,15 +200,23 @@ header#main-header .site-logo {
 #intro {
   height: 320px;
 }
-.list-content ul li.home-post-list {
+.list-content ul,
+.list-content li {
+  list-style: none;
+}
+.list-content ul li.home-post-list,
+.list-content li li.home-post-list {
   width: 45.33333333333%;
   float: left;
+  list-style: none;
 }
-.list-content ul li.home-post-list:nth-child(odd) {
+.list-content ul li.home-post-list:nth-child(odd),
+.list-content li li.home-post-list:nth-child(odd) {
   margin-right: 4.66666666667%;
   margin-left: 0;
 }
-.list-content ul li.home-post-list:nth-child(even) {
+.list-content ul li.home-post-list:nth-child(even),
+.list-content li li.home-post-list:nth-child(even) {
   margin-right: 0;
   margin-left: 4.66666666667%;
 }
