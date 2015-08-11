@@ -155,6 +155,7 @@ function register_taxonomies() {
     'show_ui'                    => true,
     'show_tagcloud'              => true,
     'hierarchical'               => true,
+    'show_admin_column'          => true,
     'rewrite'                    => array('slug' => 'topic', 'with_front' => false),
     'query_var'                  => 'topic'
   );
@@ -186,6 +187,7 @@ function register_taxonomies() {
     'show_ui'                    => true,
     'show_tagcloud'              => true,
     'hierarchical'               => true,
+    'show_admin_column'          => true,
     'rewrite'                    => array('slug' => 'country', 'with_front' => false),
     'query_var'                  => 'country'
   );
@@ -217,6 +219,7 @@ function register_taxonomies() {
     'show_ui'                    => true,
     'show_tagcloud'              => true,
     'hierarchical'               => true,
+    'show_admin_column'          => true,
     'rewrite'                    => array('slug' => 'publisher', 'with_front' => false),
     'query_var'                  => 'publisher'
   );
@@ -256,3 +259,10 @@ add_action( 'wp_head', 'ic_track_post_views');
 register_nav_menus( array(
   'footer_menu' => 'Footer Menu',
 ) );
+
+add_filter("manage_posts_columns", "my_post_edit_columns" );
+function my_post_edit_columns($columns){
+    unset($columns['categories']);
+    unset($columns['tags']);
+    return $columns;
+}
