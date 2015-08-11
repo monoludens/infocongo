@@ -148,14 +148,15 @@ function ic_custom_taxonomy() {
     'search_items'               => __( 'Search Topics', 'infocongo' ),
     'not_found'                  => __( 'Not Found', 'infocongo' ),
   );
-  $args = array(
+  $args = array( 
     'labels'                     => $labels,
-    'hierarchical'               => true,
     'public'                     => true,
-    'show_ui'                    => true,
-    'show_admin_column'          => true,
     'show_in_nav_menus'          => true,
+    'show_ui'                    => true,
     'show_tagcloud'              => true,
+    'hierarchical'               => true,
+    'rewrite'                    => array('slug' => 'topic', 'with_front' => false),
+    'query_var'                  => 'topic'
   );
   register_taxonomy( 'topic', array( 'post' ), $args );
 
@@ -178,14 +179,15 @@ function ic_custom_taxonomy() {
     'search_items'               => __( 'Search Countries', 'infocongo' ),
     'not_found'                  => __( 'Not Found', 'infocongo' ),
   );
-  $args = array(
+  $args = array( 
     'labels'                     => $labels,
-    'hierarchical'               => true,
     'public'                     => true,
-    'show_ui'                    => true,
-    'show_admin_column'          => true,
     'show_in_nav_menus'          => true,
+    'show_ui'                    => true,
     'show_tagcloud'              => true,
+    'hierarchical'               => true,
+    'rewrite'                    => array('slug' => 'country', 'with_front' => false),
+    'query_var'                  => 'country'
   );
   register_taxonomy( 'country', array( 'post' ), $args );
 
