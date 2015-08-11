@@ -127,7 +127,7 @@ function images_theme_setup() {
 
 
 // Register Custom Taxonomy
-function ic_custom_taxonomy() {
+function register_taxonomies() {
 
   $labels = array(
     'name'                       => _x( 'Topics', 'Taxonomy General Name', 'infocongo' ),
@@ -224,7 +224,7 @@ function ic_custom_taxonomy() {
   register_taxonomy('publisher', array('post'), $args);
 
 }
-add_action( 'init', 'ic_custom_taxonomy', 0 );
+add_action( 'jeo_init', 'register_taxonomies' );
 
 
 // post views
