@@ -2,17 +2,19 @@
 	</div><!-- .site-content -->
 
 	<footer id="site-footer">
-	<div class="container">
-		<div class="six columns">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-footer.png" alt="">
-			<div class="one-half colun">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-			</div>
-			<div class="one-half column">
-				<?php wp_nav_menu( array( 'theme_location' => 'footer_menu' ) ); ?>
+	<div class="main-footer container">
+		<div class="six columns block">
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-footer.png" alt="">
+			<div class="row">
+				<div class="one-half column">
+					<p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+				</div>
+				<div class="one-half column">
+					<?php wp_nav_menu( array( 'theme_location' => 'footer_menu' ) ); ?>
+				</div>
 			</div>
 		</div>
-		<div class="three columns">
+		<div class="three columns block">
 			<h4><?php _e( 'Topics' ) ?></h4>
 			<?php 
 			    $args = array(
@@ -34,7 +36,7 @@
 			    wp_list_categories( $args ); 
 			?>
 		</div>
-		<div class="three columns">
+		<div class="three columns block">
 			<h4><?php _e( 'Countries' ) ?></h4>
 			<?php 
 			    $args = array(

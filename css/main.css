@@ -1,4 +1,5 @@
-/* ---------------------------Font-face--------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,400italic,700italic);
+/* ---------------------------Fonts--------------------------- */
 @font-face {
   font-family: 'OpenSansCondensedBold';
   src: url('../fonts/opensans-condbold-webfont.eot');
@@ -41,7 +42,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'OpenSansSemiboldRegular';
+  font-family: 'Open Sans';
+  font-weight: 700;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -106,7 +108,8 @@ p {
 }
 html,
 body {
-  font: normal 12px/20px 'OpenSansRegular', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  font: normal 12px/20px 'Open Sans', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  font-weight: 300;
   color: #404040;
   margin: 0;
   padding: 0;
@@ -229,6 +232,15 @@ header#main-header .site-logo {
   background-color: #333;
   color: #fff;
 }
+#site-footer p,
+#site-footer a,
+#site-footer a:visited {
+  color: #666;
+  font-weight: 700;
+}
+#site-footer .footer-description {
+  font-weight: 100;
+}
 #site-footer #site-info {
   background-color: #666;
   float: left;
@@ -242,6 +254,27 @@ header#main-header .site-logo {
 }
 #site-footer #site-info p.footer-social-icons {
   float: right;
+}
+#site-footer h4 {
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 300;
+  margin: 20px 0;
+}
+#site-footer ul {
+  list-style: none;
+}
+#site-footer li {
+  list-style: none;
+  margin-bottom: 0;
+}
+#site-footer .block {
+  margin-top: 35px;
+  padding-top: 10px;
+  border-top: 1px solid #b6c877;
+}
+#site-footer .main-footer {
+  padding-bottom: 40px;
 }
 /*----------------map----------------*/
 .stage-map {
