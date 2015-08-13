@@ -9,6 +9,13 @@
 		</div>
 	</div>
 
+	<div style="width:100%;height:500px;">
+		<?php
+		global $jeo;
+		$jeo->get_map(false, false, true); 
+		?>
+	</div>
+
 		
 	<article id="single-post">
 		<section id="content">	
