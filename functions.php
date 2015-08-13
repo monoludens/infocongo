@@ -156,6 +156,7 @@ function register_taxonomies() {
     'show_tagcloud'              => true,
     'hierarchical'               => true,
     'show_admin_column'          => true,
+    'capability_type'            => 'post',
     'rewrite'                    => array('slug' => 'topic', 'with_front' => false),
     'query_var'                  => 'topic'
   );
@@ -188,6 +189,7 @@ function register_taxonomies() {
     'show_tagcloud'              => true,
     'hierarchical'               => true,
     'show_admin_column'          => true,
+    'capability_type'            => 'post',
     'rewrite'                    => array('slug' => 'country', 'with_front' => false),
     'query_var'                  => 'country'
   );
@@ -220,6 +222,7 @@ function register_taxonomies() {
     'show_tagcloud'              => true,
     'hierarchical'               => true,
     'show_admin_column'          => true,
+    'capability_type'            => 'post',
     'rewrite'                    => array('slug' => 'publisher', 'with_front' => false),
     'query_var'                  => 'publisher'
   );
