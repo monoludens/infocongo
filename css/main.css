@@ -200,15 +200,20 @@ header#main-header .site-logo {
 #intro {
   height: 320px;
 }
+#featured-content {
+  margin-bottom: 40px;
+}
 .list-content ul,
 .list-content li {
   list-style: none;
+  margin-bottom: 0;
 }
 .list-content ul li.home-post-list,
 .list-content li li.home-post-list {
   width: 45.33333333333%;
   float: left;
   list-style: none;
+  margin-bottom: 20px;
 }
 .list-content ul li.home-post-list:nth-child(odd),
 .list-content li li.home-post-list:nth-child(odd) {
@@ -219,6 +224,14 @@ header#main-header .site-logo {
 .list-content li li.home-post-list:nth-child(even) {
   margin-right: 0;
   margin-left: 4.66666666667%;
+}
+.list-content ul li.home-post-list .post-list-icon,
+.list-content li li.home-post-list .post-list-icon {
+  text-align: right;
+}
+.list-content ul li.home-post-list .post-list-icon span,
+.list-content li li.home-post-list .post-list-icon span {
+  display: inline-block;
 }
 /* ---------------------------body--------------------------- */
 #intro .intro-logo {
@@ -396,4 +409,7 @@ header#main-header .site-logo {
   color: #333333;
   text-align: left;
   padding-bottom: 10px;
+}
+.list-posts {
+  list-style: none;
 }

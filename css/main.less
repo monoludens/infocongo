@@ -231,13 +231,18 @@ header{
 	height: 320px;
 }
 
+#featured-content{
+	margin-bottom: 40px;
+}
 .list-content{
 	ul, li{ 
 		list-style: none;
+		margin-bottom: 0;
 		li.home-post-list{
 			width: 45.33333333333%;
 		    float: left;
 		    list-style: none;
+		    margin-bottom: 20px;
 			&:nth-child(odd){
 				margin-right: 4.66666666667%;
 				margin-left: 0;
@@ -245,6 +250,12 @@ header{
 			&:nth-child(even){
 				margin-right: 0;
 				margin-left: 4.66666666667%;
+			}
+			.post-list-icon{
+				text-align: right;
+				span{
+					display: inline-block;
+				}
 			}
 		}
 	}
@@ -457,5 +468,12 @@ header{
 
 		}
 
+	}
+}
+
+.list-posts {
+	list-style: none;
+	li{
+		
 	}
 }
