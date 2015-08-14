@@ -26,7 +26,7 @@
 <script>
 $(document).ready( function(){
 		var $et_top_menu = $( 'ul.nav' ),
-			$search_icon = $( '.search-icon' );
+			$search_icon = $( '.icon_search' );
 
 		$search_icon.click( function() {
 			var $this_el = $(this),
