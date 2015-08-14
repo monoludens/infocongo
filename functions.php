@@ -123,6 +123,8 @@ function images_theme_setup() {
   add_image_size( 'featured', 500, 464, array( 'center', 'top' ));
   add_image_size( 'home-list', 300, 200, array( 'center', 'top' ));
   add_image_size( 'home-slider', 540, 200, array( 'center', 'top' ));
+  add_image_size( 'archive-list', 220, 220, array( 'center', 'top' ));
+
 }
 
 
