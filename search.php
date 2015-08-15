@@ -19,7 +19,7 @@
 		<div class="one column spacer"></div>
 		<div class="three columns">
 			<div class="sidebar widgets">
-				<?php get_sidebar(); ?>
+				<?php dynamic_sidebar('General Sidebar'); ?>
 			</div>
 		</div>
 	</div>
