@@ -11,7 +11,7 @@
 				<?php the_post_thumbnail('archive-list'); ?>
 				<h2 class="list-title"><?php the_title(); ?></h2>
 				<p class="result-excerpt"><?php the_excerpt(); ?></p>
-				<a href="" class="button read-more"><?php _e('Read More', 'infocongo'); ?></a>
+				<a href="<?php echo get_permalink(); ?>" class="button read-more"><?php _e('Read More', 'infocongo'); ?></a>
 			</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
