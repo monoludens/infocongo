@@ -16,6 +16,9 @@ include(STYLESHEETPATH . '/inc/topics.php');
 // Datasets
 include(STYLESHEETPATH . '/inc/datasets.php');
 
+// Advanced Navigation
+include(STYLESHEETPATH . '/inc/advanced-navigation.php');
+
 /*
  * Clears JEO default front-end styles and scripts
  */

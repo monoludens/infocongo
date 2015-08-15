@@ -194,6 +194,9 @@ header#main-header .site-logo {
 #top-search .icon_search {
   font-size: 1.5rem;
 }
+.sub-header {
+  float: left;
+}
 #content {
   padding-top: 81px;
 }
