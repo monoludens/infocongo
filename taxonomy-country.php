@@ -6,11 +6,12 @@
 			<?php get_template_part('section', 'subheader'); ?>
 		</div>
 	</div>
-	<?php if(!get_query_var('infoamazonia_advanced_nav')) : ?>
+	<?php if(!get_query_var('infocongo_advanced_nav')) : ?>
 		<div id="main-map" class="stage-map">
 			<?php jeo_featured(); ?>
 		</div>
 	<?php endif; ?>
+	<?php get_template_part('section' , 'subheader'); ?>
 </section>
 
 <section id="content">
@@ -32,16 +33,16 @@
 				<div class="container">
 					<div class="twelve columns">
 						<h3><?php if(is_home()) : ?>
-							<?php _e('Latest stories', 'infoamazonia'); ?>
+							<?php _e('Latest stories', 'infocongo'); ?>
 						<?php elseif(is_tax('publisher')) : ?>
-							<?php _e('Stories by ', 'infoamazonia'); ?> &ldquo;<?php single_term_title(); ?>&rdquo;
+							<?php _e('Stories by ', 'infocongo'); ?> &ldquo;<?php single_term_title(); ?>&rdquo;
 						<?php elseif(is_tag()) : ?>
-							<?php _e('Stories on ', 'infoamazonia'); ?> &ldquo;<?php single_tag_title(); ?>&rdquo;
+							<?php _e('Stories on ', 'infocongo'); ?> &ldquo;<?php single_tag_title(); ?>&rdquo;
 						<?php else : ?>
-							<?php _e('Stories', 'infoamazonia'); ?>
+							<?php _e('Stories', 'infocongo'); ?>
 						<?php endif; ?>
 						<?php if(is_paged()) : ?>
-							- <?php printf(__('Page %d', 'infoamazonia'), get_query_var('paged')); ?>
+							- <?php printf(__('Page %d', 'infocongo'), get_query_var('paged')); ?>
 						<?php endif; ?>
 						</h3>
 						<div class="query-actions">
@@ -53,16 +54,16 @@
 							$download = jeo_get_api_download_url($args);
 							$rss = add_query_arg(array('feed' => 'rss'));
 							?>
-							<a class="rss" href="<?php echo $rss; ?>"><?php _e('RSS Feed', 'infoamazonia'); ?></a>
-							<a class="geojson" href="<?php echo $geojson; ?>"><?php _e('Get GeoJSON', 'infoamazonia'); ?></a>
-							<a class="download" href="<?php echo $download; ?>"><?php _e('Download', 'infoamazonia'); ?></a>
+							<a class="rss" href="<?php echo $rss; ?>"><?php _e('RSS Feed', 'infocongo'); ?></a>
+							<a class="geojson" href="<?php echo $geojson; ?>"><?php _e('Get GeoJSON', 'infocongo'); ?></a>
+							<a class="download" href="<?php echo $download; ?>"><?php _e('Download', 'infocongo'); ?></a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="container">
 				<?php
-				if(get_query_var('infoamazonia_advanced_nav'))
+				if(get_query_var('infocongo_advanced_nav'))
 					get_template_part('loop', 'explore');
 				else
 					get_template_part('loop');
@@ -78,13 +79,13 @@
 				<div class="section-title">
 					<div class="container">
 						<div class="twelve columns">
-							<h3><?php _e('Nothing found. Viewing all posts', 'infoamazonia'); ?></h3>
+							<h3><?php _e('Nothing found. Viewing all posts', 'infocongo'); ?></h3>
 						</div>
 					</div>
 				</div>
 				<div class="container">
 					<?php
-					if(get_query_var('infoamazonia_advanced_nav'))
+					if(get_query_var('infocongo_advanced_nav'))
 						get_template_part('loop',' explore');
 					else
 						get_template_part('loop');
