@@ -1,3 +1,22 @@
+/*
+ * Less functions
+ */
+.box-shadow(@arguments) {
+	-webkit-box-shadow: @arguments;
+	-khtml-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	-o-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-khtml-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+
 .transition(@arguments) {
 	-webkit-transition: @arguments;
 	-khtml-transition: @arguments;
@@ -5,6 +24,41 @@
 	-o-transition: @arguments;
 	transition: @arguments;
 }
+
+.transform(@arguments) {
+	-webkit-transform: @arguments;
+	-khtml-transform: @arguments;
+	-moz-transform: @arguments;
+	-o-transform: @arguments;
+	transform: @arguments;
+}
+.box-sizing(@arguments) {
+	-webkit-box-sizing: @arguments;
+	-moz-box-sizing: @arguments;
+	box-sizing: @arguments;
+}
+.font-smoothing(@arguments) {
+	-webkit-font-smoothing: @arguments;
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+	background: @color;
+	background:	-webkit-gradient(linear,
+				left bottom,
+				left top,
+				color-stop(0, @start),
+				color-stop(1, @stop));
+	background:	-ms-linear-gradient(bottom,
+				@start,
+				@stop);
+	background:	-moz-linear-gradient(center bottom,
+				@start 0%,
+				@stop 100%);
+	background:	-o-linear-gradient(@stop,
+				@start);
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+
 
 
 
@@ -204,6 +258,7 @@ header{
 	    top: 81px;
 	    padding: 10px;
 	    background-color: #555;
+	    color: #000;
 	    input{
 	    	margin-bottom: 0;
 	    }
@@ -477,3 +532,137 @@ header{
 		
 	}
 }
+
+
+
+.choose-filter {
+            margin: -17px 0 18px;
+            z-index: 200;
+            position: relative;
+            float: left;
+            .title {
+                    font-family: 'OpenSansRegular';
+                    .font-smoothing(antialiased);
+                    text-rendering: optimizeLegibility;
+                    font-size: 18px;
+                    line-height: 22px;
+                    margin: 0;
+                    padding: 15px 0;
+                    border-left: 1px solid transparent;
+                    list-style: none;
+                    display: block;
+                    float: left;
+                    .transition(all .2s ease-in-out);
+                    position: absolute;
+                    top: 22px;
+            }
+            .box {
+                    min-width: 200px;
+                    padding: 0 15px;
+                    .box-sizing(border-box);
+                    border: 1px solid transparent;
+                    background: transparent;
+                    .transition(all .2s ease-in-out);
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 2;
+                    float: left;
+                    .arrow {
+                            background-image: url(../img/sprite.png);
+                            background-position: 0 0;
+                            background-repeat: no-repeat;
+                            display: block;
+                            width: 25px;
+                            height: 25px;
+                            float: left;
+                            margin-top: 11px;
+                            margin-right: 7px;
+                            margin-left: -10px;
+                            opacity: 0.5;
+                            .transition(opacity .2s ease-in-out);
+                    }
+                    .title {
+                            padding: 15px 0 15px 12px;
+                            position: static;
+                            top: auto;
+                    }
+                    &:hover {
+                            background: rgba(255,255,255,0.2);
+                            border: 1px solid rgba(0,0,0,0.1);
+                            .box-shadow(0 2px 5px rgba(0, 0, 0, 0.05));
+                            .arrow {
+                                    opacity: 1;
+                            }
+                            .title {
+                                    border-left: 1px solid #e0e0e0;
+                            }
+                    }
+                    &:active {
+                            .box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.05));
+                    }
+            }
+            ul {
+                    position: absolute;
+                    display: none;
+                    top: 53px;
+                    width: 100%;
+                    background: #fff;
+                    border-top: 1px solid #ccc;
+                    border-left: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    .box-sizing(border-box);
+                    li {
+                            margin: 0;
+                            padding: 0;
+                            a {
+                                    display: block;
+                                    padding: 10px;
+                                    border-bottom: 1px solid #ccc;
+                                    color: #404040;
+                                    &:hover {
+                                            background-color: #8ec63d;
+                                            color: #fff;
+                                    }
+                            }
+                    }
+            }
+            &.active {
+                    .box {
+                            background: #fff;
+                            border: 1px solid #ccc;
+                            .arrow {
+                                    opacity: 1;
+                            }
+                    }
+                    ul {
+                            display: block;
+                    }
+            }
+    }
+    .toggle-more-filters {
+		float: left;
+		margin-left: 40px;
+		margin-top: 2px;
+		a {
+			padding: 8px 12px;
+			border: 1px solid transparent;
+			color: #666;
+			text-transform: lowercase;
+			background: rgba(255,255,255,0.1);
+			.box-shadow(0 0 5px rgba(0,0,0,0.02));
+			border: 1px solid rgba(0,0,0,0.05);
+			&:hover {
+				background: rgba(255,255,255,0.2);
+				.box-shadow(0 0 8px rgba(0,0,0,0.08));
+				border: 1px solid rgba(0,0,0,0.1);
+			}
+		}
+    }
+	.more-filters {
+		.advanced-nav-filters {
+			display: none;
+			&.active {
+				display: block;
+			}
+		}
+	}

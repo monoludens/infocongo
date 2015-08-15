@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,400italic,700italic);
+/*
+ * Less functions
+ */
 /* ---------------------------Fonts--------------------------- */
 @font-face {
   font-family: 'OpenSansCondensedBold';
@@ -180,6 +183,7 @@ header#main-header .site-logo {
   top: 81px;
   padding: 10px;
   background-color: #555;
+  color: #000;
 }
 #top-search form input {
   margin-bottom: 0;
@@ -412,4 +416,163 @@ header#main-header .site-logo {
 }
 .list-posts {
   list-style: none;
+}
+.choose-filter {
+  margin: -17px 0 18px;
+  z-index: 200;
+  position: relative;
+  float: left;
+}
+.choose-filter .title {
+  font-family: 'OpenSansRegular';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+  padding: 15px 0;
+  border-left: 1px solid transparent;
+  list-style: none;
+  display: block;
+  float: left;
+  -webkit-transition: all 0.2s ease-in-out;
+  -khtml-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 22px;
+}
+.choose-filter .box {
+  min-width: 200px;
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background: transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  -khtml-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  float: left;
+}
+.choose-filter .box .arrow {
+  background-image: url(../img/sprite.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: block;
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin-top: 11px;
+  margin-right: 7px;
+  margin-left: -10px;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -khtml-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.choose-filter .box .title {
+  padding: 15px 0 15px 12px;
+  position: static;
+  top: auto;
+}
+.choose-filter .box:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  -khtml-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.choose-filter .box:hover .arrow {
+  opacity: 1;
+}
+.choose-filter .box:hover .title {
+  border-left: 1px solid #e0e0e0;
+}
+.choose-filter .box:active {
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  -khtml-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.choose-filter ul {
+  position: absolute;
+  display: none;
+  top: 53px;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.choose-filter ul li {
+  margin: 0;
+  padding: 0;
+}
+.choose-filter ul li a {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  color: #404040;
+}
+.choose-filter ul li a:hover {
+  background-color: #8ec63d;
+  color: #fff;
+}
+.choose-filter.active .box {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+.choose-filter.active .box .arrow {
+  opacity: 1;
+}
+.choose-filter.active ul {
+  display: block;
+}
+.toggle-more-filters {
+  float: left;
+  margin-left: 40px;
+  margin-top: 2px;
+}
+.toggle-more-filters a {
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  color: #666;
+  text-transform: lowercase;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
+  -khtml-box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.toggle-more-filters a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  -khtml-box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  -o-box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.more-filters .advanced-nav-filters {
+  display: none;
+}
+.more-filters .advanced-nav-filters.active {
+  display: block;
 }
