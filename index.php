@@ -158,49 +158,40 @@
 
 <?php wp_reset_postdata(); ?>
 
+<?php $fourth_query = new WP_Query(array( 'posts_per_page' => 4, 'order' => 'DESC'  ) ); ?>
+<!-- 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', -->
 
-<?php $carousel = new WP_Query(array( 'posts_per_page' => 4 ) ); ?>
 
-<div class="carousel">
-	<ul id="topic-list">
-		<?php while($carousel->have_posts()) : $carousel->the_post(); ?>
-	    <li <?php post_class(); ?>><?php the_title(); ?></li>
-	</ul>
-	<div class="topic-content">
-	    <div <?php post_class(); ?>><?php the_title(); ?></div>
-	</div>
-	<?php endwhile; ?>
-</div>
 
-<?php wp_reset_postdata(); ?>
-<?php $fourth_query = new WP_Query(array( 'posts_per_page' => 4, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) ); ?>
 
 <div class="popular-content">
 	<div class="container">
-			<div class="three columns">
-				<h2>Popular posts</h2>
-				<p>lorem ipsum dolor sit amet</p>
-				<a href="" class="button">Submit a story</a>
-			</div>
+		<div class="three columns">
+			<h2>Popular posts</h2>
+			<p>lorem ipsum dolor sit amet</p>
+			<a href="" class="button">Submit a story</a>
+		</div>
 		<div class="one column spacer"></div>
+		<div class="slider">
 		<?php while( $fourth_query->have_posts() ) : $fourth_query->the_post(); ?>
 			<div id="home-slider" class="seven columns">
-				<div class="popular-thumb">
-				<?php $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-slider' );
-				    echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-			    ?>
-			</div>
-			<div class="slider-content">
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<p class="excerpt"><?php the_excerpt(); ?></p>
-			</div>
-			<div class="slider-meta">
-				<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
-				<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
-				<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
-			</div>
+					<div class="popular-thumb">
+					<?php $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-slider' );
+					    echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+				    ?>
+				</div>
+				<div class="slider-content">
+					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<p class="excerpt"><?php the_excerpt(); ?></p>
+				</div>
+				<div class="slider-meta">
+					<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
+					<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
+					<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
+				</div>
 			</div>
 		<?php endwhile; ?>
+		</div>
 	</div>
 </div>
 <?php wp_reset_postdata(); ?>

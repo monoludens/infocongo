@@ -23,6 +23,13 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico" type="image/x-icon" />
 <?php wp_head(); ?>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/js/sss.min.js"></script>
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/sss.css" type="text/css" media="all">
+<script>
+	jQuery(function($) {
+	$('.slider').sss();
+	});
+</script>
 <script>
 $(document).ready( function(){
 		var $et_top_menu = $( 'ul.nav' ),
