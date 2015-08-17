@@ -9,12 +9,7 @@
 		</div>
 	</div>
 
-	<div style="width:100%;height:500px;">
-		<?php
-		global $jeo;
-		$jeo->get_map(false, false, true); 
-		?>
-	</div>
+
 
 		
 	<article id="single-post">
@@ -27,14 +22,23 @@
 					</div>
 				</div>
 				<div class="row post-meta">
-					<div class="four columns"><span class="icon_pencil"></span><span class=""><b><?php echo get_the_date(); ?> | <?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
-					<div class="four columns"><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
-					<div class="four columns"><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
+					<div class="ten offset-by-one columns ">
+						<div class="one-third column"><span class="icon_pencil"></span><span class="info"><b><?php echo get_the_date(); ?> | <?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
+						<div class="one-third column"><span class="icon_pin_alt"></span><span class="info"><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
+						<div class="one-third column"><span class="icon_tag_alt"></span><span class="info"><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
+					</div>
 				</div>
 				<div class="row post-content">
 					<div class="ten offset-by-one columns">
 						<?php the_content(); ?>
+						<div style="width:100%;height:500px;">
+							<?php
+							global $jeo;
+							$jeo->get_map(false, false, true); 
+							?>
+						</div>
 					</div>
+
 					<script type="text/javascript">
 						var embedUrl = jQuery('.embed-button').attr('href');
 						var printUrl = jQuery('.print-button').attr('href');
