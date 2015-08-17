@@ -28,7 +28,7 @@ function infocongo_scripts() {
 	wp_deregister_style('jeo-main');
 
   // deregister jeo site frontend scripts
-  wp_deregister_script('jeo-site');
+  //wp_deregister_script('jeo-site');
 
 
 	// register normalize and grid system
@@ -237,32 +237,6 @@ function register_taxonomies() {
 }
 add_action( 'jeo_init', 'register_taxonomies' );
 
-
-// post views
-function ic_set_post_views($postID) {
-    $count_key = 'ic_post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    }else{
-        $count++;
-        update_post_meta($postID, $count_key, $count);
-    }
-}
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-
-// add post views tracker on wp_head
-function ic_track_post_views ($post_id) {
-    if ( !is_single() ) return;
-    if ( empty ( $post_id) ) {
-        global $post;
-        $post_id = $post->ID;    
-    }
-    ic_set_post_views($post_id);
-}
-add_action( 'wp_head', 'ic_track_post_views');
 
 register_nav_menus( array(
   'footer_menu' => 'Footer Menu',
