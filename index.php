@@ -157,12 +157,14 @@
 </div>
 
 <?php wp_reset_postdata(); ?>
-
-<?php $fourth_query = new WP_Query(array( 'posts_per_page' => 4, 'order' => 'DESC'  ) ); ?>
-<!-- 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', -->
-
-
-
+<?php
+	$args = array(
+	    //'meta_key' => 'post_views_count',
+	    //'orderby' => 'meta_value_num',
+	    'order' => 'ASC'
+	);
+	$fourth_query = new WP_Query($args); 
+?>
 
 <div class="popular-content">
 	<div class="container">
@@ -174,7 +176,7 @@
 		<div class="one column spacer"></div>
 		<div class="slider">
 		<?php while( $fourth_query->have_posts() ) : $fourth_query->the_post(); ?>
-			<div id="home-slider" class="seven columns">
+			<div id="home-slider">
 					<div class="popular-thumb">
 					<?php $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-slider' );
 					    echo '<img src="' . $image_src[0]  . '" width="100%"  />';
@@ -182,12 +184,12 @@
 				</div>
 				<div class="slider-content">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<p class="excerpt"><?php the_excerpt(); ?></p>
+					<div class="excerpt"><?php the_excerpt(); ?></div>
 				</div>
 				<div class="slider-meta">
-					<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
-					<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
-					<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
+					<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
+					<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
+					<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
 				</div>
 			</div>
 		<?php endwhile; ?>

@@ -406,17 +406,67 @@ header#main-header .site-logo {
   z-index: 100;
 }
 .popular-content {
-  margin-top: 50px;
   background-color: #fff;
 }
-.popular-content #home-slider .slider-content {
+.popular-content .slider {
+  margin-top: 50px;
+}
+.popular-content .slider #home-slider {
+  width: 90%;
+}
+.popular-content .slider #home-slider .popular-thumb {
+  max-height: 200px;
+  overflow: hidden;
+}
+.popular-content .slider #home-slider .slider-content {
   width: 63%;
   float: left;
 }
-.popular-content #home-slider .slider-meta {
+.popular-content .slider #home-slider .slider-content h2 {
+  font-family: 'Open Sans';
+  margin: 20px 0;
+  font-size: 40px;
+  text-align: left;
+}
+.popular-content .slider #home-slider .slider-content h2 a {
+  font-weight: 300;
+  color: #333333;
+}
+.popular-content .slider #home-slider .slider-content .excerpt p {
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: italic;
+  line-height: 160%;
+  color: #333333;
+  text-align: left;
+  padding-bottom: 10px;
+}
+.popular-content .slider #home-slider .slider-meta {
   float: left;
   width: 30%;
   margin-left: 7%;
+  padding-top: 20px;
+}
+.popular-content .slider #home-slider .slider-meta .meta-author,
+.popular-content .slider #home-slider .slider-meta .meta-country,
+.popular-content .slider #home-slider .slider-meta .meta-topic {
+  margin-bottom: 30px;
+}
+.popular-content .slider #home-slider .slider-meta .meta-author .meta-content p,
+.popular-content .slider #home-slider .slider-meta .meta-country .meta-content p,
+.popular-content .slider #home-slider .slider-meta .meta-topic .meta-content p {
+  display: inline-table;
+}
+.popular-content .slider #home-slider .slider-meta .meta-author .meta-icons,
+.popular-content .slider #home-slider .slider-meta .meta-country .meta-icons,
+.popular-content .slider #home-slider .slider-meta .meta-topic .meta-icons {
+  top: 4px;
+  margin-right: 8%;
+  position: relative;
+  font-size: 1.8rem;
+}
+.popular-content .slider #home-slider .slider-meta .meta-topic {
+  margin-bottom: 0;
 }
 /* ---------------------------posts--------------------------- */
 #single-post .post-header h1 {

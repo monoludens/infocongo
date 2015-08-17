@@ -488,19 +488,63 @@ header{
     z-index: 100;
 }
 
-
 .popular-content{
-	margin-top: 50px;
 	background-color: #fff;
-	#home-slider{
-		.slider-content{
-		    width: 63%;
-		    float: left;
-		}
-		.slider-meta{
-			float: left;
-			width: 30%;
-			margin-left: 7%;
+	.slider{
+		margin-top: 50px;
+		#home-slider{
+			width: 90%;
+			.popular-thumb{
+				max-height: 200px;
+				overflow: hidden;
+			}
+			.slider-content{
+			    width: 63%;
+			    float: left;
+			    h2{
+			    	font-family: 'Open Sans';
+			    	margin: 20px 0;
+			    	font-size:40px;
+			    	text-align:left;
+			    	a{
+					font-weight: 300;
+					color:rgb(51,51,51);
+					}
+			    }
+			    .excerpt p{
+			    	font-family:"Open Sans";
+					font-size:16px;
+					font-style:italic;
+					line-height:160%;
+					color:rgb(51,51,51);
+					text-align:left;
+					padding-bottom:10px;
+
+			    }
+			}
+			.slider-meta{
+				float: left;
+				width: 30%;
+				margin-left: 7%;
+				padding-top: 20px;
+				.meta-author, .meta-country, .meta-topic{
+					margin-bottom: 30px;
+					.meta-content{
+						p{
+							display: inline-table;
+						}
+					}
+					.meta-icons{
+					    top: 4px;
+					    margin-right: 8%;
+					    position: relative;
+					    font-size: 1.8rem;
+					}
+				}
+				.meta-topic{
+					margin-bottom: 0;
+				}
+			}
 		}
 	}
 }
