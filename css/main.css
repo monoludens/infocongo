@@ -99,7 +99,8 @@ strong {
 a,
 a:visited {
   text-decoration: none;
-  color: #2C8FC6;
+  color: #CC4C25;
+  font-weight: 700;
   -webkit-transition: all 0.25s ease;
   -khtml-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -124,6 +125,8 @@ body {
 .icon_pin_alt,
 .icon_tag_alt {
   font-size: 1.5rem;
+  color: #666666;
+  font-weight: 100;
 }
 /* ---------------------------Header--------------------------- */
 header#main-header {
@@ -216,29 +219,46 @@ header#main-header .site-logo {
   margin-bottom: 0;
 }
 .list-content ul li.home-post-list,
-.list-content li li.home-post-list {
+.list-content li li.home-post-list,
+.list-content ul .home-post-list,
+.list-content li .home-post-list {
   width: 45.33333333333%;
   float: left;
   list-style: none;
   margin-bottom: 20px;
+  display: none;
 }
 .list-content ul li.home-post-list:nth-child(odd),
-.list-content li li.home-post-list:nth-child(odd) {
+.list-content li li.home-post-list:nth-child(odd),
+.list-content ul .home-post-list:nth-child(odd),
+.list-content li .home-post-list:nth-child(odd) {
   margin-right: 4.66666666667%;
   margin-left: 0;
 }
 .list-content ul li.home-post-list:nth-child(even),
-.list-content li li.home-post-list:nth-child(even) {
+.list-content li li.home-post-list:nth-child(even),
+.list-content ul .home-post-list:nth-child(even),
+.list-content li .home-post-list:nth-child(even) {
   margin-right: 0;
   margin-left: 4.66666666667%;
 }
 .list-content ul li.home-post-list .post-list-icon,
-.list-content li li.home-post-list .post-list-icon {
+.list-content li li.home-post-list .post-list-icon,
+.list-content ul .home-post-list .post-list-icon,
+.list-content li .home-post-list .post-list-icon {
   text-align: right;
 }
 .list-content ul li.home-post-list .post-list-icon span,
-.list-content li li.home-post-list .post-list-icon span {
+.list-content li li.home-post-list .post-list-icon span,
+.list-content ul .home-post-list .post-list-icon span,
+.list-content li .home-post-list .post-list-icon span {
   display: inline-block;
+}
+.list-content ul li.home-post-list.active,
+.list-content li li.home-post-list.active,
+.list-content ul .home-post-list.active,
+.list-content li .home-post-list.active {
+  display: block;
 }
 /* ---------------------------body--------------------------- */
 #intro .intro-logo {
@@ -403,6 +423,20 @@ header#main-header .site-logo {
   font-style: italic;
   padding: 20px 100px;
   line-height: 30px;
+}
+#single-post .post-meta span {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+#single-post .post-meta span.icon_pencil,
+#single-post .post-meta span.icon_pin_alt,
+#single-post .post-meta span.icon_tag_alt {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+#single-post .post-meta span .info {
+  margin-bottom: 20px;
 }
 #single-post .post-content h1 {
   font-size: 36px;
@@ -577,5 +611,16 @@ header#main-header .site-logo {
   display: none;
 }
 .more-filters .advanced-nav-filters.active {
+  display: block;
+}
+.active {
+  font-weight: bold;
+}
+.listed-post {
+  width: 200px;
+  float: left;
+  display: none;
+}
+.listed-post.active {
   display: block;
 }

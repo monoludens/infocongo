@@ -169,7 +169,8 @@ strong {
 
 a,a:visited {
 	text-decoration: none;
-	color: #2C8FC6;
+	color: #CC4C25;
+	font-weight: 700;
 	.transition(all .25s ease);
 }
 
@@ -192,7 +193,9 @@ body {
 /* ---------------------------Icons--------------------------- */
 
 .icon_pencil, .icon_pin_alt, .icon_tag_alt {
-	font-size: 1.5rem
+	font-size: 1.5rem;
+	color: #666666;
+	font-weight: 100;
 }
 /* ---------------------------Header--------------------------- */
 
@@ -297,11 +300,12 @@ header{
 	ul, li{ 
 		list-style: none;
 		margin-bottom: 0;
-		li.home-post-list{
+		li.home-post-list, .home-post-list{
 			width: 45.33333333333%;
 		    float: left;
 		    list-style: none;
 		    margin-bottom: 20px;
+		    display: none;
 			&:nth-child(odd){
 				margin-right: 4.66666666667%;
 				margin-left: 0;
@@ -315,6 +319,9 @@ header{
 				span{
 					display: inline-block;
 				}
+			}
+			&.active{
+				display:block; 
 			}
 		}
 	}
@@ -508,7 +515,18 @@ header{
 		}
 	}
 	.post-meta{
-
+		span{
+			width: 100%;
+			display: block;
+			text-align: center;
+			&.icon_pencil, &.icon_pin_alt, &.icon_tag_alt {
+			    font-size: 1.8rem;
+			    margin-bottom: 15px;
+			}
+			.info{
+				margin-bottom: 20px;
+			}
+		}
 	}
 	.post-content{
 		
@@ -668,5 +686,18 @@ header{
 			&.active {
 				display: block;
 			}
+		}
+	}
+
+	.active{
+		font-weight: bold;
+	}
+
+	.listed-post{
+		width: 200px;
+		float: left;
+		display: none;
+		&.active{
+			display: block;
 		}
 	}
