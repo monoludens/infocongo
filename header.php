@@ -57,6 +57,11 @@ $(document).ready( function(){
 					</div>
 					<div class="eight columns">
 						<section id="main-nav">
+							<div class="languages">
+								<span><a href="?lang=en">en</a></span>
+								<span>|</span>
+								<span><a href="?lang=fr">fr</a></span>
+							</div>
 							<div id="top-search">
 								<span class="icon_search"></span>
 								<form role="search" method="get" class="search-form hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">

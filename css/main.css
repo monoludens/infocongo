@@ -176,6 +176,11 @@ header#main-header .site-logo {
 #main-nav nav ul li.current_page_item a {
   background: rgba(255, 255, 255, 0.3);
 }
+#main-nav .languages {
+  float: right;
+  padding: 30px 20px;
+  font-size: 1.2rem;
+}
 #top-search {
   float: right;
   margin-top: 30px;
@@ -196,6 +201,7 @@ header#main-header .site-logo {
 }
 #top-search .icon_search {
   font-size: 1.5rem;
+  margin: 0 20px;
 }
 .sub-header {
   float: left;
