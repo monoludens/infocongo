@@ -82,50 +82,97 @@
 	</div>
 </div>
 
-<?php $third_query = new WP_Query( array( 'taxonomy' => 'country', 'term' => 'Cameroon', 'posts_per_page' => 4)); ?>
+
+
+
+
+
+
+
+<?php $third_query = new WP_Query( array( 'taxonomy' => 'country')); ?>
 <div class="list-content">
 	<div class="container">
 		<div class="three columns">
-			<h2><?php _e( 'Countries' ) ?></h2>
-			<?php 
-			    $args = array(
-				'show_option_all'    => '',
-				'orderby'            => 'name',
-				'order'              => 'ASC',
-				'style'              => 'list',
-				'hide_empty'         => 1,
-				'use_desc_for_title' => 1,
-				'title_li'           => __( '' ),
-				'number'             => null,
-				'echo'               => 1,
-				'depth'              => 0,
-				'current_category'   => 1,
-				'pad_counts'         => 0,
-				'taxonomy'           => 'country',
-				'walker'             => null
-			    );
-			    wp_list_categories( $args ); 
-			?>
+			<h2><?php _e( 'Countries', 'infocongo' ) ?></h2>
+			<ul id="topic-list">
+				<?php
+				$terms = get_terms( 'country' );
+				 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+				     foreach ( $terms as $term ) {
+				       echo '<li id="' . $term->slug . '">' . $term->name . '</li>';
+				     }
+				 }
+				 ?>
+			</ul>
 		</div>
 		<div class="nine columns">
-			<ul>
-			<?php while($third_query->have_posts()) : $third_query->the_post(); ?>
-				<li class="home-post-list">
-					<?php if(has_post_thumbnail()) {                    
-					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
-					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-					} ?>
-					<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-					<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
-				</li>
+			<div class="topic-content">
+				<ul>
+				<?php while($third_query->have_posts()) : $third_query->the_post(); ?>
+					<?php $tax = 'country'; ?>
+						<?php $tax_post = wp_get_object_terms( $post->ID, $tax ); ?>
+						<li id="<?php foreach($tax_post as $slug) { 
+								echo $slug->slug . " ";	
+							}?>" class="home-post-list">
+							
+								<?php if(has_post_thumbnail()) {                    
+								    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
+								     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+								} ?>
+								<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+								<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+							</li>					
 				<?php endwhile; ?>
-			</ul>
+				</ul>
+				<a href="<?php foreach($tax_post as $slug) { 
+								echo $slug->slug . " ";	
+							}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?></a>
+			</div>
+					
+				<script>
+	
+					  $(document).ready(function() {
+
+					  var $list = $('#topic-list li');
+					  var $content = $('.topic-content li');
+
+					  $list.click(function() {
+
+					      $list.removeClass('active');
+					      $content.removeClass('active');
+
+					      var $c = $(this).attr('id');
+					      $(this).addClass('active');
+					      $content.each(function() {
+					          if ($(this).attr('id').indexOf($c)) {
+					              $(this).addClass('active');
+					          }
+					      });
+
+					  });
+					});
+				</script>
 		</div>
 	</div>
 </div>
 
 <?php wp_reset_postdata(); ?>
 
+
+<?php $carousel = new WP_Query(array( 'posts_per_page' => 4 ) ); ?>
+
+<div class="carousel">
+	<ul id="topic-list">
+		<?php while($carousel->have_posts()) : $carousel->the_post(); ?>
+	    <li <?php post_class(); ?>><?php the_title(); ?></li>
+	</ul>
+	<div class="topic-content">
+	    <div <?php post_class(); ?>><?php the_title(); ?></div>
+	</div>
+	<?php endwhile; ?>
+</div>
+
+<?php wp_reset_postdata(); ?>
 <?php $fourth_query = new WP_Query(array( 'posts_per_page' => 4, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) ); ?>
 
 <div class="popular-content">
