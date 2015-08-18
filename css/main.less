@@ -173,7 +173,9 @@ a,a:visited {
 	font-weight: 700;
 	.transition(all .25s ease);
 }
-
+a:hover{
+	color: #D77354;
+}
 p {
 	margin: 0 0 15px;
 }
@@ -303,22 +305,39 @@ header{
 	margin-bottom: 40px;
 }
 .list-content{
+	.topic-content, .country-content{
+		width: 78%;
+		float: left;
+	}
+	#country-list, #topic-list{
+		li{
+			cursor: pointer;
+			&.active{
+				font-weight: bold;
+				color: #CC4C25;
+			}
+		}
+	}
 	ul, li{ 
 		list-style: none;
 		margin-bottom: 0;
 		li.home-post-list, .home-post-list{
-			width: 45.33333333333%;
+			width: 40.33333333333%;
 		    float: left;
 		    list-style: none;
-		    margin-bottom: 20px;
+		    margin-bottom: 5rem;
 		    display: none;
-			&:nth-child(odd){
-				margin-right: 4.66666666667%;
-				margin-left: 0;
-			}
-			&:nth-child(even){
-				margin-right: 0;
-				margin-left: 4.66666666667%;
+		    margin-left: 9.3333332%;
+		    margin-right: 0;
+		    h6{
+		    	margin-bottom: 1rem;
+		    }
+			.post-list-country{
+				float: right;
+				.icon_pin_alt{
+					top: 3px;
+					position: relative;
+				}
 			}
 			.post-list-icon{
 				text-align: right;
@@ -379,7 +398,7 @@ header{
 			.meta-author, .meta-country, .meta-topic{
 				.meta-content{
 					p{
-						display: inline-table;
+						display: inline;
 						margin-bottom: 5px;
 					}
 				}

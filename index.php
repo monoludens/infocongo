@@ -115,7 +115,7 @@
 					 ?>
 				</ul>
 			</div>
-			<div class="nine columns">
+			
 				<div class="topic-content">
 					<ul>
 						<?php while($second_query->have_posts()) : $second_query->the_post(); ?>
@@ -130,8 +130,11 @@
 										     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 										} ?>
 										<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-										<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
-									</li>					
+										<div class="post-list-country">
+											<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+											<span class="icon_pin_alt"></span>
+										</div>
+										</li>					
 						<?php endwhile; ?>
 					</ul>
 					<!--<a href="<?php foreach($tax_post as $slug) { 
@@ -139,7 +142,7 @@
 						}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
 					</a>-->
 				</div>
-			</div>
+			
 		</div>
 	</div>
 <?php wp_reset_postdata(); ?>
@@ -160,7 +163,6 @@
 					 ?>
 				</ul>
 			</div>
-			<div class="nine columns">
 				<div class="country-content">
 					<ul>
 						<?php while($third_query->have_posts()) : $third_query->the_post(); ?>
@@ -175,7 +177,10 @@
 										     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 										} ?>
 										<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-										<span class="icon_pin_alt"></span><span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+										<div class="post-list-country">
+											<span class="icon_pin_alt"></span>
+											<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+										</div>
 									</li>					
 						<?php endwhile; ?>
 					</ul>

@@ -107,6 +107,9 @@ a:visited {
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+a:hover {
+  color: #D77354;
+}
 p {
   margin: 0 0 15px;
 }
@@ -219,6 +222,20 @@ header#main-header .site-logo {
 #featured-content {
   margin-bottom: 40px;
 }
+.list-content .topic-content,
+.list-content .country-content {
+  width: 78%;
+  float: left;
+}
+.list-content #country-list li,
+.list-content #topic-list li {
+  cursor: pointer;
+}
+.list-content #country-list li.active,
+.list-content #topic-list li.active {
+  font-weight: bold;
+  color: #CC4C25;
+}
 .list-content ul,
 .list-content li {
   list-style: none;
@@ -228,25 +245,32 @@ header#main-header .site-logo {
 .list-content li li.home-post-list,
 .list-content ul .home-post-list,
 .list-content li .home-post-list {
-  width: 45.33333333333%;
+  width: 40.33333333333%;
   float: left;
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 5rem;
   display: none;
-}
-.list-content ul li.home-post-list:nth-child(odd),
-.list-content li li.home-post-list:nth-child(odd),
-.list-content ul .home-post-list:nth-child(odd),
-.list-content li .home-post-list:nth-child(odd) {
-  margin-right: 4.66666666667%;
-  margin-left: 0;
-}
-.list-content ul li.home-post-list:nth-child(even),
-.list-content li li.home-post-list:nth-child(even),
-.list-content ul .home-post-list:nth-child(even),
-.list-content li .home-post-list:nth-child(even) {
+  margin-left: 9.3333332%;
   margin-right: 0;
-  margin-left: 4.66666666667%;
+}
+.list-content ul li.home-post-list h6,
+.list-content li li.home-post-list h6,
+.list-content ul .home-post-list h6,
+.list-content li .home-post-list h6 {
+  margin-bottom: 1rem;
+}
+.list-content ul li.home-post-list .post-list-country,
+.list-content li li.home-post-list .post-list-country,
+.list-content ul .home-post-list .post-list-country,
+.list-content li .home-post-list .post-list-country {
+  float: right;
+}
+.list-content ul li.home-post-list .post-list-country .icon_pin_alt,
+.list-content li li.home-post-list .post-list-country .icon_pin_alt,
+.list-content ul .home-post-list .post-list-country .icon_pin_alt,
+.list-content li .home-post-list .post-list-country .icon_pin_alt {
+  top: 3px;
+  position: relative;
 }
 .list-content ul li.home-post-list .post-list-icon,
 .list-content li li.home-post-list .post-list-icon,
@@ -310,7 +334,7 @@ header#main-header .site-logo {
 #featured-content #home-featured .featured-meta .meta-author .meta-content p,
 #featured-content #home-featured .featured-meta .meta-country .meta-content p,
 #featured-content #home-featured .featured-meta .meta-topic .meta-content p {
-  display: inline-table;
+  display: inline;
   margin-bottom: 5px;
 }
 #featured-content #home-featured .featured-meta .meta-author .meta-icons,
