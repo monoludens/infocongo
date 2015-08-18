@@ -280,6 +280,58 @@ header#main-header .site-logo {
   font-style: italic;
   line-height: 30px;
 }
+#featured-content {
+  background-color: #fff;
+}
+#featured-content #home-featured h2 {
+  font-family: 'Open Sans';
+  margin: 50px 0 30px;
+  font-size: 40px;
+  text-align: left;
+}
+#featured-content #home-featured h2 a {
+  font-weight: 300;
+  color: #333333;
+}
+#featured-content #home-featured .excerpt p {
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: italic;
+  line-height: 160%;
+  color: #333333;
+  text-align: left;
+  padding-bottom: 10px;
+}
+#featured-content #home-featured .featured-meta {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+#featured-content #home-featured .featured-meta .meta-author .meta-content p,
+#featured-content #home-featured .featured-meta .meta-country .meta-content p,
+#featured-content #home-featured .featured-meta .meta-topic .meta-content p {
+  display: inline-table;
+  margin-bottom: 5px;
+}
+#featured-content #home-featured .featured-meta .meta-author .meta-icons,
+#featured-content #home-featured .featured-meta .meta-country .meta-icons,
+#featured-content #home-featured .featured-meta .meta-topic .meta-icons {
+  top: 4px;
+  margin-right: 3%;
+  position: relative;
+  font-size: 1.8rem;
+}
+#featured-content #home-featured .featured-meta .meta-topic {
+  margin-bottom: 0;
+}
+#featured-content #home-featured .read-more {
+  width: 100%;
+  background-color: #B6C877;
+  color: #fff;
+  border: 0;
+  text-transform: lowercase;
+  font-size: 1.2rem;
+}
 /* ---------------------------Footer--------------------------- */
 #site-footer {
   width: 100%;

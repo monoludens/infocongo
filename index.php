@@ -23,13 +23,14 @@
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} ?>
 				</div>
-				<div class="one column spacer"></div>
-				<div class="five columns offset-by-one column">
+				<div id="home-featured" class="five columns offset-by-one column">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<div><span class="icon_pencil"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
-					<div><span class="icon_pin_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
-					<div><span class="icon_tag_alt"></span><span class=""><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
-					<p class="excerpt"><?php the_excerpt(); ?></p>
+					<div class="featured-meta">
+						<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
+						<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
+						<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
+					</div>
+					<div class="excerpt"><?php the_excerpt(); ?></div>
 					<a class="button read-more" href="<?php the_permalink(); ?>"><?php _e('Read more', 'infocongo'); ?></a>
 				</div>
 			</div>
