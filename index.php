@@ -4,56 +4,44 @@
 	jQuery( document ).ready(function( $ ) {
 
 		var $topic_list = $('#topic-list li');
-		var $topic_content = $('.topic-content li');
-		var $topic_list_first = $('#topic-list li:first-child');
-		var $topic_a = $topic_list_first.attr('id');
-
-		$topic_list_first.addClass('active');
-		$topic_content.each(function() {
-			if ($(this).attr('id').indexOf($topic_a)) {
-				$(this).addClass('active');
-			}
-		});
+		var $topic_content = $('.topic-content');
+		var $topic_ref;
 
 		$topic_list.click(function() {
 
 			$topic_list.removeClass('active');
 			$topic_content.removeClass('active');
 
-			var $topic_b = $(this).attr('id');
+			$topic_ref = $(this).attr('id');
 			$(this).addClass('active');
 			$topic_content.each(function() {
-				if ($(this).attr('id').indexOf($topic_b)) {
+				if ($(this).attr('id').indexOf($topic_ref) !== -1) {
 					$(this).addClass('active');
 				}
 			});
 		});
 
+		$topic_list.filter(':first-child').click();
+
 		var $country_list = $('#country-list li');
 		var $country_content = $('.country-content li');
-		var $country_list_first = $('#country-list li:first-child');
-		var $country_a = $country_list_first.attr('id');
-
-		$country_list_first.addClass('active');
-		$country_content.each(function() {
-			if ($(this).attr('id').indexOf($country_a)) {
-				$(this).addClass('active');
-			}
-		});
+		var $country_ref;
 
 		$country_list.click(function() {
 
 			$country_list.removeClass('active');
 			$country_content.removeClass('active');
 
-			var $country_b = $(this).attr('id');
+			$country_ref = $(this).attr('id');
 			$(this).addClass('active');
 			$country_content.each(function() {
-				if ($(this).attr('id').indexOf($country_b)) {
+				if ($(this).attr('id').indexOf($country_ref) !== -1) {
 					$(this).addClass('active');
 				}
 			});
 		});
+
+		$country_list.filter(':first-child').click();
 	});
 </script>
 
@@ -99,7 +87,6 @@
 <?php wp_reset_postdata(); ?>
 
 <!-- Topics -->
-<?php $second_query = new WP_Query( array( 'taxonomy' => 'topic')); ?>
 	<div class="list-content">
 		<div class="container">
 			<div class="three columns">
@@ -116,32 +103,38 @@
 				</ul>
 			</div>
 			
-				<div class="topic-content">
-					<ul>
-						<?php while($second_query->have_posts()) : $second_query->the_post(); ?>
-							<?php $tax = 'topic'; ?>
-								<?php $tax_post = wp_get_object_terms( $post->ID, $tax ); ?>
-								<li id="<?php foreach($tax_post as $slug) { 
-										echo $slug->slug . " ";	
-									}?>" class="home-post-list">
+			<?php
+			$terms = get_terms( 'topic' );
+			foreach($terms as $term) :
+				$term_query = new WP_Query(array('topic' => $term->slug, 'posts_per_page' => 4));
+				if($term_query->have_posts()) : 
+					?>
+					<div id="<?php echo $term->slug; ?>" class="topic-content">
+						<ul>
+							<?php while($term_query->have_posts()) : $term_query->the_post(); ?>
+								<li id="<?php echo $term->slug; ?>-<?php the_ID(); ?>" class="home-post-list">
 									
-										<?php if(has_post_thumbnail()) {                    
-										    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
-										     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-										} ?>
-										<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-										<div class="post-list-country">
-											<span class="icon_pin_alt"></span>
-											<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
-										</div>
-										</li>					
-						<?php endwhile; ?>
-					</ul>
-					<!--<a href="<?php foreach($tax_post as $slug) { 
-							echo $slug->slug . " ";	
-						}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
-					</a>-->
-				</div>
+									<?php if(has_post_thumbnail()) {                    
+									    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
+									     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+									} ?>
+									<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+									<div class="post-list-country">
+										<span class="icon_pin_alt"></span>
+										<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+									</div>
+								</li>					
+							<?php endwhile; ?>
+						</ul>
+						<!--<a href="<?php foreach($tax_post as $slug) { 
+								echo $slug->slug . " ";	
+							}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
+						</a>-->
+					</div>
+					<?php
+				endif;
+			endforeach;
+			?>
 			
 		</div>
 	</div>

@@ -226,6 +226,11 @@ header#main-header .site-logo {
 .list-content .country-content {
   width: 78%;
   float: left;
+  display: none;
+}
+.list-content .topic-content.active,
+.list-content .country-content.active {
+  display: block;
 }
 .list-content #country-list li,
 .list-content #topic-list li {
@@ -249,7 +254,7 @@ header#main-header .site-logo {
   float: left;
   list-style: none;
   margin-bottom: 5rem;
-  display: none;
+  display: block;
   margin-left: 9.3333332%;
   margin-right: 0;
 }
@@ -283,12 +288,6 @@ header#main-header .site-logo {
 .list-content ul .home-post-list .post-list-icon span,
 .list-content li .home-post-list .post-list-icon span {
   display: inline-block;
-}
-.list-content ul li.home-post-list.active,
-.list-content li li.home-post-list.active,
-.list-content ul .home-post-list.active,
-.list-content li .home-post-list.active {
-  display: block;
 }
 /* ---------------------------body--------------------------- */
 #intro .intro-logo {

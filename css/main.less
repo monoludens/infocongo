@@ -308,6 +308,10 @@ header{
 	.topic-content, .country-content{
 		width: 78%;
 		float: left;
+		display: none;
+		&.active {
+			display: block;
+		}
 	}
 	#country-list, #topic-list{
 		li{
@@ -326,7 +330,7 @@ header{
 		    float: left;
 		    list-style: none;
 		    margin-bottom: 5rem;
-		    display: none;
+		    display: block;
 		    margin-left: 9.3333332%;
 		    margin-right: 0;
 		    h6{
@@ -344,9 +348,6 @@ header{
 				span{
 					display: inline-block;
 				}
-			}
-			&.active{
-				display:block; 
 			}
 		}
 	}
