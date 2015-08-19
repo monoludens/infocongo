@@ -55,14 +55,14 @@ $(document).ready( function(){
 		<header id="main-header">
 			<div class="container">
 				<div class="row">
-					<div class="four columns">
+					<div class="two columns">
 						<span class="site-logo">
 							<a href="<?php echo home_url('/' . $lang); ?>" title="<?php echo bloginfo('name'); ?>">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-mini.png" class="logo" />
 							</a>
 						</span>
 					</div>
-					<div class="eight columns">
+					<div class="ten columns">
 						<section id="main-nav">
 							<div class="languages">
 								<span><a href="?lang=en">en</a></span>
