@@ -131,8 +131,8 @@
 										} ?>
 										<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 										<div class="post-list-country">
-											<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
 											<span class="icon_pin_alt"></span>
+											<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
 										</div>
 										</li>					
 						<?php endwhile; ?>
