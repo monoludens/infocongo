@@ -18,9 +18,6 @@ function infocongo_taxonomy_filter($label, $taxonomy) {
           <?php echo $title; ?>
       </div>
       <ul>
-        <?php if($current_term) : ?>
-          <li class="filter"><a href="<?php echo home_url('/'); ?>" title="<?php _e('All stories', 'infocongo'); ?>"><?php _e('All stories', 'infocongo'); ?></a></li>
-        <?php endif; ?>
         <?php foreach($terms as $term) : ?>
           <?php if($current_term && $term->slug == $current_term->slug) continue; ?>
           <li class="filter"><a href="<?php echo get_term_link($term); ?>" title="<?php echo $term->name; ?>"><?php echo $term->name; ?></a></li>
@@ -37,5 +34,14 @@ function infocongo_taxonomy_filter($label, $taxonomy) {
       </script>
     <?php endif; ?>
   </div>
+  <div class="toggle-more-filters">
+      <a href="javascript:void(0);"><?php _e('More filters', 'infocongo'); ?></a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="more-filters">
+      <div class="more-filters-content">
+        <?php infoamazonia_adv_nav_filters(); ?>
+      </div>      
+    </div>
   <?php
 }
