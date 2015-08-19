@@ -310,8 +310,9 @@ header#main-header .site-logo {
 #featured-content #home-featured h2 {
   font-family: 'Open Sans';
   margin: 50px 0 30px;
-  font-size: 40px;
+  font-size: 38px;
   text-align: left;
+  line-height: 40px;
 }
 #featured-content #home-featured h2 a {
   font-weight: 300;
@@ -501,8 +502,9 @@ header#main-header .site-logo {
 .popular-content .slider #home-slider .slider-content h2 {
   font-family: 'Open Sans';
   margin: 20px 0;
-  font-size: 40px;
+  font-size: 38px;
   text-align: left;
+  line-height: 40px;
 }
 .popular-content .slider #home-slider .slider-content h2 a {
   font-weight: 300;
