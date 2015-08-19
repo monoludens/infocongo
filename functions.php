@@ -30,6 +30,8 @@ function infocongo_scripts() {
   // deregister jeo site frontend scripts
   //wp_deregister_script('jeo-site');
 
+  // Chosen
+  wp_enqueue_script('chosen', get_stylesheet_directory_uri() . '/lib/chosen.jquery.min.js', array('jquery'));
 
 	// register normalize and grid system
 	wp_register_style('infocongo-normalize', get_stylesheet_directory_uri() . '/css/normalize.css', array(), '2.0.4');
