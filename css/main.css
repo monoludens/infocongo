@@ -157,12 +157,15 @@ header#main-header .site-logo {
   margin: 0;
   padding: 0;
   list-style: none;
+  position: relative;
 }
 #main-nav nav ul li {
+  margin: 0;
   font-size: 14px;
   float: left;
-  margin: 0;
+  margin: 0px;
   text-align: center;
+  position: relative;
 }
 #main-nav nav ul li a {
   display: block;
@@ -170,11 +173,34 @@ header#main-header .site-logo {
   padding: 30px 22px;
   margin: 0;
   color: #FFF;
-  border-bottom: 1px solid transparent;
 }
 #main-nav nav ul li a:hover {
-  border-color: #eee;
+  background-color: #444;
   color: #F8F8F8;
+}
+#main-nav nav ul li ul {
+  display: none;
+  position: absolute;
+  right: -50%;
+  left: -50%;
+  background-color: #444;
+}
+#main-nav nav ul li ul li {
+  font-size: 12px;
+  width: 100%;
+}
+#main-nav nav ul li ul li a {
+  margin: 0px;
+  padding: 6px 0;
+  width: 100%;
+  display: block;
+  border-bottom: 0px;
+}
+#main-nav nav ul li ul li a:hover {
+  background-color: #555;
+}
+#main-nav nav ul li:hover ul {
+  display: block;
 }
 #main-nav nav ul li.current_page_item a {
   background: rgba(255, 255, 255, 0.3);
@@ -571,13 +597,16 @@ header#main-header .site-logo {
 #single-post .post-meta span .info {
   margin-bottom: 20px;
 }
+#single-post .post-content {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #b6c877;
+}
 #single-post .post-content h1 {
   font-size: 36px;
 }
 #single-post .post-content p {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #b6c877;
+  padding-top: 10px;
   font-size: 20px;
   line-height: 160%;
   color: #333333;
@@ -586,6 +615,19 @@ header#main-header .site-logo {
 }
 .list-posts {
   list-style: none;
+}
+/*------- Taxonomy --------*/
+#maps header .map-header {
+  float: left;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  z-index: 99999;
+  background-color: #555;
+}
+#maps .taxonomy-map {
+  width: 100%;
+  height: 500px;
 }
 .choose-filter {
   margin: -17px 0 18px;
@@ -713,12 +755,12 @@ header#main-header .site-logo {
 .choose-filter.active ul {
   display: block;
 }
-.toggle-more-filters {
+.choose-filter .toggle-more-filters {
   float: left;
   margin-left: 40px;
   margin-top: 2px;
 }
-.toggle-more-filters a {
+.choose-filter .toggle-more-filters a {
   padding: 8px 12px;
   border: 1px solid transparent;
   color: #666;
@@ -731,7 +773,7 @@ header#main-header .site-logo {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
-.toggle-more-filters a:hover {
+.choose-filter .toggle-more-filters a:hover {
   background: rgba(255, 255, 255, 0.2);
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
   -khtml-box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
@@ -740,20 +782,20 @@ header#main-header .site-logo {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.more-filters .advanced-nav-filters {
+.choose-filter .more-filters .advanced-nav-filters {
   display: none;
 }
-.more-filters .advanced-nav-filters.active {
+.choose-filter .more-filters .advanced-nav-filters.active {
   display: block;
 }
-.active {
+.choose-filter .active {
   font-weight: bold;
 }
-.listed-post {
+.choose-filter .listed-post {
   width: 200px;
   float: left;
   display: none;
 }
-.listed-post.active {
+.choose-filter .listed-post.active {
   display: block;
 }
