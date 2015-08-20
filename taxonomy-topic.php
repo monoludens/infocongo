@@ -1,25 +1,20 @@
-	<?php get_header(); ?>
-
-	<section id="content">
-		<div id="map-archive" class="gray-page archive-page">
-			<div class="container">
-			<?php $topics = new WP_Query( array( 'taxonomy' => 'topic')); ?>
-
-							<?php while($topics->have_posts()) : $topic->the_post(); ?>
-
-						<section id="maps" class="map-loop-section archive-list">
-								<div class="twelve columns">
-							<header class="page-header">
-									<h1><?php _e('Maps', 'infocongo'); ?></h1>
-							</header>
-								</div>
-							<?php get_template_part('loop', 'maps'); ?>
-						</section>
-
-					<?php while; ?>
-				<?php wp_reset_postdata(); ?>
+<?php get_header(); ?>
+	<div id="map-archive" class="gray-page archive-page">
+		<section id="maps" class="map-loop-section archive-list">
+			<header class="map-header">
+			<?php infocongo_taxonomy_filter('Choose a topic', 'topic'); ?>
+			</header>
+			<div class="taxonomy-map">
+				<?php
+					global $jeo;
+					$jeo->get_map(false, false, true); 
+				?>
 			</div>
-		</div>
-	</section>
-
-	<?php get_footer(); ?>
+			<div class="container">
+				<div class="twelve columns">
+					<?php get_template_part('loop'); ?>
+				</div>
+			</div>
+		</section>
+	</div>
+<?php get_footer(); ?>
