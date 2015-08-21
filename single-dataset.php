@@ -33,7 +33,7 @@
 							?>
 						</div>
 					</div>
-					<div class="four columns">
+					<div class="three offset-by-one-middle columns">
 						<?php
 						$data = get_field('full_download');
 						if($data) :
