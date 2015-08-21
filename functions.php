@@ -19,6 +19,9 @@ include(STYLESHEETPATH . '/inc/datasets.php');
 // Advanced Navigation
 include(STYLESHEETPATH . '/inc/advanced-navigation.php');
 
+//Submit Story
+include(STYLESHEETPATH . '/inc/submit-story.php');
+
 /*
  * Clears JEO default front-end styles and scripts
  */
@@ -27,7 +30,7 @@ function infocongo_scripts() {
 	// deregister jeo styles
 	wp_deregister_style('jeo-main');
 
-  // deregister jeo site frontend scripts
+  // deregister jeo site frontend infocongo_scripts 
   //wp_deregister_script('jeo-site');
 
   // Chosen
@@ -127,6 +130,7 @@ add_action( 'after_setup_theme', 'images_theme_setup' );
 function images_theme_setup() {
   add_image_size( 'featured', 500, 464, array( 'center', 'top' ));
   add_image_size( 'home-list', 300, 200, array( 'center', 'top' ));
+  add_image_size( 'loop-list', 300, 200, array( 'center', 'top' ));
   add_image_size( 'home-slider', 540, 200, array( 'center', 'top' ));
   add_image_size( 'archive-list', 220, 220, array( 'center', 'top' ));
 
@@ -250,3 +254,63 @@ function my_post_edit_columns($columns){
     unset($columns['tags']);
     return $columns;
 }
+
+//limit excerpt length
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  } 
+  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+  return $excerpt;
+}
+
+//limit content length
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  } 
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
+
+//limit title length
+function title($limit) {
+  $title = explode(' ', get_the_title(), $limit);
+  if (count($title)>=$limit) {
+    array_pop($title);
+    $title = implode(" ",$title).'...';
+  } else {
+    $title = implode(" ",$title);
+  } 
+  $title = preg_replace('/\[.+\]/','', $title);
+  $title = apply_filters('the_title', $title); 
+  $title = str_replace(']]>', ']]&gt;', $title);
+  return $title;
+}
+
+
+function infocongo_submit_story() {
+  wp_register_script('submit-story', get_stylesheet_directory_uri() . '/js/submit-story.js', array('jquery'), '0.1.1');
+
+  wp_enqueue_script('submit-story');
+
+  wp_localize_script('submit-story', 'infoamazonia_submit', array(
+    'ajaxurl' => admin_url('admin-ajax.php'),
+    'success_label' => __('Success! Thank you, your story will be reviewed by one of our editors and soon will be online.', 'infoamazonia'),
+    'redirect_label' => __('You\'re being redirect to the home page in 4 seconds.', 'infoamazonia'),
+    'home' => home_url('/'),
+    'error_label' => __('Oops, please try again in a few minutes.', 'infoamazonia')
+  ));
+}
+add_action('wp_enqueue_scripts', 'infocongo_submit_story', 100);
+
