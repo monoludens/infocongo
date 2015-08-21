@@ -8,10 +8,6 @@
 			<?php get_template_part('stage', 'map'); ?>
 		</div>
 	</div>
-
-
-
-		
 	<article id="single-post">
 		<section id="content">	
 			<div class="container">
@@ -28,15 +24,15 @@
 						<div class="one-third column"><span class="icon_tag_alt"></span><span class="info"><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
 					</div>
 				</div>
-				<div class="row post-content">
-					<div class="ten offset-by-one columns">
-						<?php the_content(); ?>
-						<div style="width:100%;height:500px;">
+				<div class="row ">
+					<div class="post-content ten offset-by-one columns">
+						<div style="width:100%;height:500px; margin-bottom:40px;">
 							<?php
 							global $jeo;
 							$jeo->get_map(false, false, true); 
 							?>
 						</div>
+						<?php the_content(); ?>
 					</div>
 
 					<script type="text/javascript">
@@ -61,6 +57,5 @@
 	</article>
 <?php endif; ?>
 
-<?php get_template_part('section', 'main-widget'); ?>
 
 <?php get_footer(); ?>
