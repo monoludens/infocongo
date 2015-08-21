@@ -99,38 +99,16 @@ class infoamazonia_AdvancedNav {
 	function form() {
 
 		?>
-		<form class="advanced-nav-filters row <?php if($_GET[$this->prefix]) echo 'active'; ?>">
-			<input type="hidden" name="<?php echo $this->prefix; ?>" value="1" />
-			<div class="three columns alpha">
+		<form class="advanced-nav-filters <?php if($_GET[$this->prefix]) echo 'active'; ?>">
+			<div class="three columns">
+				<input type="hidden" name="<?php echo $this->prefix; ?>" value="1" />
 				<div class="search-input adv-nav-input">
 					<p class="label"><label for="<?php echo $this->prefix; ?>s"><?php _e('Text search', 'infoamazonia'); ?></label></p>
 					<input type="text" id="<?php echo $this->prefix; ?>s" name="<?php echo $this->prefix; ?>s" placeholder="<?php _e('Type your search here', 'infoamazonia'); ?>" value="<?php echo (isset($_GET[$this->prefix . 's'])) ? $_GET[$this->prefix . 's'] : ''; ?>" />
 				</div>
 			</div>
-			<?php
-			$categories = get_categories();
-			$active_cats = isset($_GET[$this->prefix . 'category']) ? $_GET[$this->prefix . 'category'] : array();
-			if($categories) :
-				?>
-				<div class="three columns">
-					<div class="category-input adv-nav-input">
-						<p class="label"><label for="<?php echo $this->prefix; ?>category"><?php _e('Categories', 'infoamazonia'); ?></label></p>
-						<select id="<?php echo $this->prefix; ?>category" name="<?php echo $this->prefix; ?>category[]" multiple data-placeholder="<?php _e('Select categories', 'infoamazonia'); ?>">
-							<?php foreach($categories as $category) : ?>
-								<option value="<?php echo $category->term_id; ?>" <?php if(in_array($category->term_id, $active_cats)) echo 'selected'; ?>><?php echo $category->name; ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-				</div>
-			<?php endif; ?>
-			<?php
-			$oldest = array_shift(get_posts(array('posts_per_page' => 1, 'order' => 'ASC', 'orderby' => 'date')));
-			$newest = array_shift(get_posts(array('posts_per_page' => 1, 'order' => 'DESC', 'orderby' => 'date')));
-
-			$before = $oldest->post_date;
-			$after = $newest->post_date;
-			?>
-			<div class="five columns omega">
+			
+			<div class="six columns date-range">
 				<div class="date-input adv-nav-input">
 					<p class="label"><label for="<?php echo $this->prefix; ?>date_start"><?php _e('Date range', 'infoamazonia'); ?></label></p>
 					<div class="date-range-inputs">
@@ -145,7 +123,7 @@ class infoamazonia_AdvancedNav {
 					</div>
 				</div>
 			</div>
-			<div class="one column">
+			<div class="three columns filter-button">
 				<input type="submit" class="button" value="<?php _e('Filter', 'infoamazonia'); ?>" />
 			</div>
 		</form>
