@@ -24,7 +24,7 @@
 		$topic_list.filter(':first-child').click();
 
 		var $country_list = $('#country-list li');
-		var $country_content = $('.country-content li');
+		var $country_content = $('.country-content');
 		var $country_ref;
 
 		$country_list.click(function() {
@@ -52,7 +52,7 @@
 			<div class="six columns offset-by-three column intro-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-intro.png" alt=""></div>
 		</div>
 		<div class="row">
-			<div class="six columns offset-by-three column intro-text"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p></div>
+			<div class="six columns offset-by-three column intro-text"><p><?php $intro = get_field( 'intro', 247 ); echo $intro; ?></p></div>
 		</div>
 	</div>
 </div>
@@ -68,16 +68,18 @@
 					<?php if(has_post_thumbnail()) {                    
 					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'featured' );
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-					} ?>
+					} else{
+							echo '<div class="nothumb featured"></div>';
+						}?>
 				</div>
-				<div id="home-featured" class="five columns offset-by-one column">
+				<div id="home-featured" class="five offset-by-one-middle columns">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<div class="featured-meta">
 						<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
 						<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
 						<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
 					</div>
-					<div class="excerpt"><?php the_excerpt(); ?></div>
+					<div class="excerpt"><p><?php echo excerpt(35); ?></p></div>
 					<a class="button read-more" href="<?php the_permalink(); ?>"><?php _e('Read more', 'infocongo'); ?></a>
 				</div>
 			</div>
@@ -113,12 +115,13 @@
 						<ul>
 							<?php while($term_query->have_posts()) : $term_query->the_post(); ?>
 								<li id="<?php echo $term->slug; ?>-<?php the_ID(); ?>" class="home-post-list">
-									
 									<?php if(has_post_thumbnail()) {                    
 									    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
 									     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+									} else {
+										echo '<div class="nothumb home-list"></div>';
 									} ?>
-									<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+									<h6><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h6>
 									<div class="post-list-country">
 										<span class="icon_pin_alt"></span>
 										<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
@@ -139,8 +142,8 @@
 		</div>
 	</div>
 <?php wp_reset_postdata(); ?>
+
 <!-- Country -->
-<?php $third_query = new WP_Query( array( 'taxonomy' => 'country')); ?>
 	<div class="list-content">
 		<div class="container">
 			<div class="three columns">
@@ -156,33 +159,41 @@
 					 ?>
 				</ul>
 			</div>
-				<div class="country-content">
-					<ul>
-						<?php while($third_query->have_posts()) : $third_query->the_post(); ?>
-							<?php $tax = 'country'; ?>
-								<?php $tax_post = wp_get_object_terms( $post->ID, $tax ); ?>
-								<li id="<?php foreach($tax_post as $slug) { 
-										echo $slug->slug . " ";	
-									}?>" class="home-post-list">
-									
-										<?php if(has_post_thumbnail()) {                    
-										    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
-										     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-										} ?>
-										<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-										<div class="post-list-country">
-											<span class="icon_pin_alt"></span>
-											<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
-										</div>
-									</li>					
-						<?php endwhile; ?>
-					</ul>
-					<!--<a href="<?php foreach($tax_post as $slug) { 
-							echo $slug->slug . " ";	
-						}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
-					</a>-->
-				</div>
-			</div>
+			
+			<?php
+			$terms = get_terms( 'country' );
+			foreach($terms as $term) :
+				$term_query = new WP_Query(array('country' => $term->slug, 'posts_per_page' => 4));
+				if($term_query->have_posts()) : 
+					?>
+					<div id="<?php echo $term->slug; ?>" class="country-content">
+						<ul>
+							<?php while($term_query->have_posts()) : $term_query->the_post(); ?>
+								<li id="<?php echo $term->slug; ?>-<?php the_ID(); ?>" class="home-post-list">
+									<?php if(has_post_thumbnail()) {                    
+									    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-list' );
+									     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+									} else {
+										echo '<div class="nothumb home-list"></div>';
+									} ?>
+									<h6><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h6>
+									<div class="post-list-country">
+										<span class="icon_pin_alt"></span>
+										<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
+									</div>
+								</li>					
+							<?php endwhile; ?>
+						</ul>
+						<!--<a href="<?php foreach($tax_post as $slug) { 
+								echo $slug->slug . " ";	
+							}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
+						</a>-->
+					</div>
+					<?php
+				endif;
+			endforeach;
+			?>
+			
 		</div>
 	</div>
 <?php wp_reset_postdata(); ?>
@@ -204,30 +215,35 @@
 			<p>lorem ipsum dolor sit amet</p>
 			<a href="" class="button">Submit a story</a>
 		</div>
-		<div class="one column spacer"></div>
-		<div class="slider">
-		<?php while( $fourth_query->have_posts() ) : $fourth_query->the_post(); ?>
-			<div id="home-slider">
-					<div class="popular-thumb">
-					<?php $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-slider' );
-					    echo '<img src="' . $image_src[0]  . '" width="100%"  />';
-				    ?>
-				</div>
-				<div class="slider-content">
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<div class="excerpt"><?php the_excerpt(); ?></div>
-				</div>
-				<div class="slider-meta">
-					<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
-					<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
-					<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
-				</div>
+		<div class="eight offset-by-one-middle columns">
+			<div class="slider">
+				<?php while( $fourth_query->have_posts() ) : $fourth_query->the_post(); ?>
+					<div id="home-slider">
+							<div class="popular-thumb">
+							<?php if(has_post_thumbnail()) {                    
+							    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'home-slider' );
+							     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
+							} else {
+								echo '<div class="nothumb popular-thumb"></div>';
+							} ?>
+						</div>
+						<div class="slider-content">
+							<h2><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h2>
+							<div class="excerpt"><p><?php echo excerpt(20); ?></p></div>
+						</div>
+						<div class="slider-meta">
+							<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
+							<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
+							<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
+						</div>
+					</div>
+				<?php endwhile; ?>
 			</div>
-		<?php endwhile; ?>
 		</div>
 	</div>
 </div>
 <?php wp_reset_postdata(); ?>
+<a class="button submit-story">Submit a story</a>
 
 
 <?php get_footer(); ?>
