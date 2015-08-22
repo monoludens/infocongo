@@ -15,7 +15,7 @@
 			$topic_ref = $(this).attr('id');
 			$(this).addClass('active');
 			$topic_content.each(function() {
-				if ($(this).attr('id').indexOf($topic_ref) !== -1) {
+				if ($(this).attr('id') == $topic_ref) {
 					$(this).addClass('active');
 				}
 			});
@@ -35,7 +35,7 @@
 			$country_ref = $(this).attr('id');
 			$(this).addClass('active');
 			$country_content.each(function() {
-				if ($(this).attr('id').indexOf($country_ref) !== -1) {
+				if ($(this).attr('id') == $country_ref) {
 					$(this).addClass('active');
 				}
 			});
