@@ -31,8 +31,7 @@
 	});
 </script>
 <script>
-$.noConflict();
-	jQuery( document ).ready(function( $ ) {
+$(document).ready( function(){
 		var $et_top_menu = $( 'ul.nav' ),
 			$search_icon = $( '.icon_search' );
 
