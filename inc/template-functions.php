@@ -38,7 +38,7 @@ function infocongo_taxonomy_filter($label, $taxonomy) {
 					<?php endif; ?>
 				</div>
 			</div>
-			<!-- <div class="nine columns">
+			<div class="nine columns">
 				<div class="more-filters">
 					<div class="more-filters-content">
 						<?php infoamazonia_adv_nav_filters(); ?>
@@ -47,7 +47,7 @@ function infocongo_taxonomy_filter($label, $taxonomy) {
 			</div>
 			<div class="toggle-more-filters">
 				<a href="javascript:void(0);"><?php _e('More filters', 'infocongo'); ?></a>
-			</div>    -->   
+			</div>   
 		</div>
 	</section>
 	<?php
