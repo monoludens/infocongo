@@ -14,49 +14,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="three columns block">
-			<h4><?php _e( 'Topics' ) ?></h4>
-			<?php 
-			    $args = array(
-				'show_option_all'    => '',
-				'orderby'            => 'name',
-				'order'              => 'ASC',
-				'style'              => 'list',
-				'hide_empty'         => 1,
-				'use_desc_for_title' => 1,
-				'title_li'           => __( '' ),
-				'number'             => null,
-				'echo'               => 1,
-				'depth'              => 0,
-				'current_category'   => 1,
-				'pad_counts'         => 0,
-				'taxonomy'           => 'topic',
-				'walker'             => null
-			    );
-			    wp_list_categories( $args ); 
-			?>
-		</div>
-		<div class="three columns block">
-			<h4><?php _e( 'Countries' ) ?></h4>
-			<?php 
-			    $args = array(
-				'show_option_all'    => '',
-				'orderby'            => 'name',
-				'order'              => 'ASC',
-				'style'              => 'list',
-				'hide_empty'         => 1,
-				'use_desc_for_title' => 1,
-				'title_li'           => __( '' ),
-				'number'             => null,
-				'echo'               => 1,
-				'depth'              => 0,
-				'current_category'   => 1,
-				'pad_counts'         => 0,
-				'taxonomy'           => 'country',
-				'walker'             => null
-			    );
-			    wp_list_categories( $args ); 
-			?>
+		<div class="six columns supports">
+			<div class="twelve columns">
+				<div class="row">
+					<h4><?php _e( 'A project by' ) ?></h4>
+					<a href="http://internews.org" class="logos internews"></a>
+					<a href="http://internews.org" class="logos earth"></a>	
+				</div>
+				<div class="row">
+					<h4><?php _e( 'Supported by' ) ?></h4>
+					<a href="http://internews.org" class="logos carpe"></a>	
+					<a href="http://internews.org" class="logos usaid"></a>	
+				</div>
+			</div>
 		</div>
 	</div>
 	<div id="site-info">
