@@ -240,6 +240,39 @@ function register_taxonomies() {
 
   register_taxonomy('publisher', array('post'), $args);
 
+    $labels = array(
+    'name'                       => _x( 'Authors', 'Taxonomy General Name', 'infocongo' ),
+    'singular_name'              => _x( 'Author', 'Taxonomy Singular Name', 'infocongo' ),
+    'menu_name'                  => __( 'Authors', 'infocongo' ),
+    'all_items'                  => __( 'All Authors', 'infocongo' ),
+    'parent_item'                => __( 'Parent Authors', 'infocongo' ),
+    'parent_item_colon'          => __( 'Parent Author:', 'infocongo' ),
+    'new_item_name'              => __( 'New Author Name', 'infocongo' ),
+    'add_new_item'               => __( 'Add New Author', 'infocongo' ),
+    'edit_item'                  => __( 'Edit Author', 'infocongo' ),
+    'update_item'                => __( 'Update Author', 'infocongo' ),
+    'view_item'                  => __( 'View Author', 'infocongo' ),
+    'separate_items_with_commas' => __( 'Separate Author with commas', 'infocongo' ),
+    'add_or_remove_items'        => __( 'Add or remove Author', 'infocongo' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'infocongo' ),
+    'popular_items'              => __( 'Popular Authors', 'infocongo' ),
+    'search_items'               => __( 'Search Authors', 'infocongo' ),
+    'not_found'                  => __( 'Not Found', 'infocongo' ),
+  );
+  $args = array( 
+    'labels'                     => $labels,
+    'public'                     => true,
+    'show_in_nav_menus'          => true,
+    'show_ui'                    => true,
+    'show_tagcloud'              => true,
+    'hierarchical'               => true,
+    'show_admin_column'          => true,
+    'capability_type'            => 'post',
+    'rewrite'                    => array('slug' => 'author', 'with_front' => false),
+    'query_var'                  => 'author'
+  );
+  register_taxonomy( 'author', array( 'post' ), $args );
+
 }
 add_action( 'jeo_init', 'register_taxonomies' );
 
