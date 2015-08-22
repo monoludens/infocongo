@@ -22,6 +22,9 @@ include(STYLESHEETPATH . '/inc/advanced-navigation.php');
 //Submit Story
 include(STYLESHEETPATH . '/inc/submit-story.php');
 
+ // geocode box
+include(STYLESHEETPATH . '/inc/geocode-box.php');
+
 /*
  * Clears JEO default front-end styles and scripts
  */
@@ -59,23 +62,11 @@ function infocongo_jeo_scripts() {
 
   // Register and enqueue scripts here
 
-	// Enqueue child theme JEO related scripts
-  wp_enqueue_script('infocongo-jeo-scripts', get_stylesheet_directory_uri() . '/js/jeo-scripts.js', array('jquery') , '0.0.1');
-
 	// Enqueue main CSS (with grid system dependency)
   wp_enqueue_style('infocongo-styles', get_stylesheet_directory_uri() . '/css/main.css', array('infocongo-skeleton'));
 
 }
 add_action('jeo_enqueue_scripts', 'infocongo_jeo_scripts', 20);
-
-// Hook scripts after JEO Marker scripts has been initialized
-function infocongo_markers_scripts() {
-
-  // Register and enqueue scripts here
-  wp_enqueue_script('infocongo-jeo-markers-scripts', get_stylesheet_directory_uri() . '/js/jeo-markers-scripts.js', array('jquery') , '0.0.1');
-
-}
-add_action('jeo_markers_enqueue_scripts', 'infocongo_markers_scripts', 20);
 
 // Filter to change posts GeoJSON data (also changes the GeoJSON API output)
 function infocongo_marker_data($data, $post) {
@@ -85,12 +76,11 @@ global $post;
   $permalink = $data['url'];
 
   if(function_exists('qtrans_getLanguage'))
-    $permalink = add_query_arg(array('lang' => qtrans_getLanguage()), $permalink);
+   $permalink = add_query_arg(array('lang' => qtrans_getLanguage()), $permalink);
 
   $data['permalink'] = $permalink;
   $data['url'] = $permalink;
   $data['content'] = get_the_excerpt();
-  $data['slideshow'] = infoamazonia_get_content_media();
   if(get_post_meta($post->ID, 'geocode_zoom', true))
     $data['zoom'] = get_post_meta($post->ID, 'geocode_zoom', true);
 
@@ -100,8 +90,6 @@ global $post;
     $publisher = array_shift($publishers);
     $data['source'] = apply_filters('single_cat_title', $publisher->name);
   }
-  // thumbnail
-  $data['thumbnail'] = infoamazonia_get_thumbnail();
 
   return $data;
 }

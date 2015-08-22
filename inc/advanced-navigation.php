@@ -155,8 +155,12 @@ class infoamazonia_AdvancedNav {
 
 					$('.category-input select').chosen();
 
-					var min = moment('<?= $before; ?>').toDate();
-					var max = moment('<?= $after; ?>').toDate();
+					var min = null;
+					var max = null;
+					<?php if($before && $after) : ?>
+						min = moment('<?= $before; ?>').toDate();
+						max = moment('<?= $after; ?>').toDate();
+					<?php endif; ?>
 
 					$('.date-range-inputs .date-from').datepicker({
 						defaultDate: min,
