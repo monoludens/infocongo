@@ -55,6 +55,13 @@
 			<div class="six columns offset-by-three column intro-text"><p><?php $intro = get_field( 'intro', 247 ); echo $intro; ?></p></div>
 		</div>
 	</div>
+	<div class="submit-a-story-banner">
+		<div class="container">
+			<div class="ten offset-by-one columns">
+				<p class="take-action">Take action on Congo issues</p><a class="button submit-story">Submit a story</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- Featured -->
@@ -243,7 +250,7 @@
 	</div>
 </div>
 <?php wp_reset_postdata(); ?>
-<a class="button submit-story">Submit a story</a>
+
 
 
 <?php get_footer(); ?>

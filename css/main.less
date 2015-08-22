@@ -322,8 +322,9 @@ header{
 
 #intro{
 	height: 320px;
+	position: relative;
 	.intro-logo {
-	    padding: 70px 0 30px;
+	    padding: 55px 0 20px;
 	    text-align: center;
 	}
 	.intro-text{
@@ -333,6 +334,35 @@ header{
 			font-size: 22px;
 			font-style: italic;
 			line-height: 30px;
+			font-weight: 400;
+		}
+	}
+}
+
+.submit-a-story-banner{
+	background-color: rgba(50, 50, 50, 0.4);
+    position: absolute;
+    bottom: 0;
+    padding: 20px 0;
+    margin: 0;
+    width: 100%;
+	.take-action{
+		color: #fff;
+		font-family: 'lato';
+		font-weight: 100;
+		font-size: 30px;
+		float: left;
+		line-height: 35px;
+		margin-top: 7px;
+	}
+	a{
+		&.submit-story{
+			float: right;
+			background-color: @green1;
+			color: #fff;
+		    font-size: 12px;
+		    margin-bottom: 0;
+		    margin-top: 7px;
 		}
 	}
 }
@@ -424,10 +454,12 @@ header{
 		}
 	}
 	h4{
-		font-family: "Open Sans" ;
-		font-size: 22px;
+		font-family: "lato" ;
+		font-size: 20px;
 		font-weight: 300;
-	    margin: 20px 0;
+	    margin: 35px 0 20px;
+	    border-top: @green1 1px solid;
+    	padding-top: 10px;
 	}
 	ul{
 		list-style: none;
@@ -1167,3 +1199,24 @@ header{
 .offset-by-one-middle.column, .offset-by-one-middle.columns{ 
 	margin-left: 12.66666666667%;
 }
+
+.supports{
+	h4{
+		font-family: 'Lato';
+		font-weight: 400;
+	}
+	a.logos{
+		background-image: url('../img/logos.png');
+	    background-repeat: no-repeat;
+	    background-position: 0 0;
+	    display: inline-block;
+	    float: left;
+	    margin-right: 40px;
+		&.earth{ width:97px; height:51px; background-position:-10px -10px; }
+		&.carpe{ width:93px; height:46px; background-position:-10px -71px; }
+		&.internews{ width:147px; height:44px; background-position:-10px -127px; }
+		&.usaid{ width:149px; height:44px; background-position:-10px -181px; }
+	}
+}
+
+
