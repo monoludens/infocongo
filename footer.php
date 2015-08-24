@@ -7,7 +7,7 @@
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-footer.png" alt="">
 			<div class="row">
 				<div class="one-half column">
-					<p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+					<p class="footer-description">InfoCongo is a news platform using data and interactive maps to capture ongoing positive and negative changes in the Congo Basin.</p>
 				</div>
 				<div class="one-half column">
 					<?php wp_nav_menu( array( 'theme_location' => 'footer_menu' ) ); ?>
@@ -19,12 +19,12 @@
 				<div class="row">
 					<h4><?php _e( 'A project by' ) ?></h4>
 					<a href="http://internews.org" class="logos internews"></a>
-					<a href="http://internews.org" class="logos earth"></a>	
+					<a href="http://earthjournalism.net/" class="logos earth"></a>	
 				</div>
 				<div class="row">
 					<h4><?php _e( 'Supported by' ) ?></h4>
-					<a href="http://internews.org" class="logos carpe"></a>	
-					<a href="http://internews.org" class="logos usaid"></a>	
+					<a href="http://carpe.umd.edu/" class="logos carpe"></a>	
+					<a href="https://www.usaid.gov/" class="logos usaid"></a>	
 				</div>
 			</div>
 		</div>
