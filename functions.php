@@ -22,8 +22,21 @@ include(STYLESHEETPATH . '/inc/advanced-navigation.php');
 //Submit Story
 include(STYLESHEETPATH . '/inc/submit-story.php');
 
- // geocode box
+ // Geocode box
 include(STYLESHEETPATH . '/inc/geocode-box.php');
+
+ // Shares
+//include(STYLESHEETPATH . '/inc/shares.php');    
+
+// Update shares on post view
+/*function publica_update_shares() {
+  if(is_single()) {
+    global $post;
+    publica_get_shares($post->ID);
+  }
+}
+add_action('wp_head', 'publica_update_shares');*/
+
 
 /*
  * Clears JEO default front-end styles and scripts
