@@ -42,7 +42,7 @@
 		});
 
 		$country_list.filter(':first-child').click();
-	});
+	})(jQuery);
 </script>
 
 
@@ -52,37 +52,42 @@
 			<div class="six columns offset-by-three column intro-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-intro.png" alt=""></div>
 		</div>
 		<div class="row">
-			<div class="six columns offset-by-three column intro-text"><p><?php $intro = get_field( 'intro', 247 ); echo $intro; ?></p></div>
+			<div class="six columns offset-by-three column intro-text">
+				<p><?php $intro = get_bloginfo( 'description'); echo $intro; ?></p>
+			</div>
 		</div>
 	</div>
 	<div class="submit-a-story-banner">
 		<div class="container">
 			<div class="ten offset-by-one columns">
-				<p class="take-action">Take action on Congo issues</p><a class="button submit-story">Submit a story</a>
+				<p class="take-action"><?php _e('Take action on Congo issues' , 'infocongo'); ?></p><a class="button submit-story"><?php _e('Submit a story', 'infocongo'); ?></a>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- Featured -->
-<?php $first_query = new WP_Query('cat=Featured&posts_per_page=1');
+<?php $first_query = new WP_Query(array('category_name' => 'featured-post', 'posts_per_page' => 1));
 	while($first_query->have_posts()) : $first_query->the_post();
 ?>
 	<div id="featured-content">
 		<div class="container">
 			<div class="row">
 				<div class="six columns">
-					<?php if(has_post_thumbnail()) {                    
+					<?php if(has_post_thumbnail()) {
 					    $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'featured' );
 					     echo '<img src="' . $image_src[0]  . '" width="100%"  />';
 					} else{
 							echo '<div class="nothumb featured"></div>';
 						}?>
 				</div>
-				<div id="home-featured" class="five offset-by-one-middle columns">
+				<div id="home-featured" class="six columns">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<div class="featured-meta">
-						<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
+						<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?>
+							<?php echo ' <a> | </a>'; ?>
+							<?php $author_name =  the_author_posts_link( $user_id ); echo $author_name; ?>
+						</p></span></div>
 						<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
 						<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
 					</div>
@@ -113,7 +118,7 @@
 			</div>
 			
 			<?php
-			$terms = get_terms( 'topic' );
+			$terms = get_terms('topic');
 			foreach($terms as $term) :
 				$term_query = new WP_Query(array('topic' => $term->slug, 'posts_per_page' => 4));
 				if($term_query->have_posts()) : 
@@ -128,7 +133,7 @@
 									} else {
 										echo '<div class="nothumb home-list"></div>';
 									} ?>
-									<h6><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h6>
+									<h6><a href="<?php the_permalink(); ?>"><?php echo title(10); ?></a></h6>
 									<div class="post-list-country">
 										<span class="icon_pin_alt"></span>
 										<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
@@ -136,10 +141,11 @@
 								</li>					
 							<?php endwhile; ?>
 						</ul>
-						<!--<a href="<?php foreach($tax_post as $slug) { 
-								echo $slug->slug . " ";	
-							}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
-						</a>-->
+						<div class="all-stories">
+							<a href="<?php echo get_term_link($term); ?>" class="button"> 
+								<?php _e('See all stories about this topic', 'infocongo'); ?>
+							</a>
+						</div>
 					</div>
 					<?php
 				endif;
@@ -183,7 +189,7 @@
 									} else {
 										echo '<div class="nothumb home-list"></div>';
 									} ?>
-									<h6><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h6>
+									<h6><a href="<?php the_permalink(); ?>"><?php echo title(10); ?></a></h6>
 									<div class="post-list-country">
 										<span class="icon_pin_alt"></span>
 										<span><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></span>
@@ -191,10 +197,11 @@
 								</li>					
 							<?php endwhile; ?>
 						</ul>
-						<!--<a href="<?php foreach($tax_post as $slug) { 
-								echo $slug->slug . " ";	
-							}?>" class="button"> <?php _e('See all stories about this topic', 'infocongo'); ?>
-						</a>-->
+						<div class="all-stories">
+							<a href="<?php echo get_term_link($term); ?>" class="button"> 
+								<?php _e('See all stories about this country', 'infocongo'); ?>
+							</a>
+						</div>
 					</div>
 					<?php
 				endif;
@@ -207,9 +214,8 @@
 
 <?php
 	$args = array(
-	    //'meta_key' => 'post_views_count',
-	    //'orderby' => 'meta_value_num',
-	    'order' => 'ASC'
+	   'cat' => 'Popular'
+	   'order' => 'ASC'
 	);
 	$fourth_query = new WP_Query($args); 
 ?>
@@ -218,9 +224,7 @@
 <div class="popular-content">
 	<div class="container">
 		<div class="three columns">
-			<h2>Popular posts</h2>
-			<p>lorem ipsum dolor sit amet</p>
-			<a href="" class="button">Submit a story</a>
+			<h2><?php _e('Popular posts' , 'infocongo' ); ?></h2>
 		</div>
 		<div class="eight offset-by-one-middle columns">
 			<div class="slider">
@@ -235,11 +239,14 @@
 							} ?>
 						</div>
 						<div class="slider-content">
-							<h2><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h2>
+							<h2><a href="<?php the_permalink(); ?>"><?php echo title(10); ?></a></h2>
 							<div class="excerpt"><p><?php echo excerpt(20); ?></p></div>
 						</div>
 						<div class="slider-meta">
-							<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></p></span></div>
+							<div class="meta-author"><span class="meta-icons icon_pencil"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?>
+								<?php echo ' <a> | </a>'; ?>
+								<?php $author_name =  the_author_posts_link( $user_id ); echo $author_name; ?>
+							</p></span></div>
 							<div class="meta-country"><span class="meta-icons icon_pin_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></p></span></div>
 							<div class="meta-topic"><span class="meta-icons icon_tag_alt"></span><span class="meta-content"><p><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></p></span></div>
 						</div>
