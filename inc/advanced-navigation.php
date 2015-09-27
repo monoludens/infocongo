@@ -99,34 +99,30 @@ class infoamazonia_AdvancedNav {
 	function form() {
 
 		?>
-		<form class="advanced-nav-filters <?php if($_GET[$this->prefix]) echo 'active'; ?>">
-			<div class="three columns">
-				<input type="hidden" name="<?php echo $this->prefix; ?>" value="1" />
-				<div class="search-input adv-nav-input">
-					<p class="label"><label for="<?php echo $this->prefix; ?>s"><?php _e('Text search', 'infoamazonia'); ?></label></p>
-					<input type="text" id="<?php echo $this->prefix; ?>s" name="<?php echo $this->prefix; ?>s" placeholder="<?php _e('Type your search here', 'infoamazonia'); ?>" value="<?php echo (isset($_GET[$this->prefix . 's'])) ? $_GET[$this->prefix . 's'] : ''; ?>" />
-				</div>
-			</div>
-			
-			<div class="six columns date-range">
-				<div class="date-input adv-nav-input">
-					<p class="label"><label for="<?php echo $this->prefix; ?>date_start"><?php _e('Date range', 'infoamazonia'); ?></label></p>
-					<div class="date-range-inputs">
-						<div class="date-from-container">
-							<label class="sublabel" for="<?php echo $this->prefix; ?>date_start"><?php _e('From', 'infoamazonia'); ?></label>
-							<input type="text" class="date-from" id="<?php echo $this->prefix; ?>date_start" name="<?php echo $this->prefix; ?>date_start" value="<?php echo (isset($_GET[$this->prefix . 'date_start'])) ? $_GET[$this->prefix . 'date_start'] : ''; ?>" />
-						</div>
-						<div class="date-to-container">
-							<label class="sublabel" for="<?php echo $this->prefix; ?>date_end"><?php _e('To', 'infoamazonia'); ?></label>
-							<input type="text" class="date-to" id="<?php echo $this->prefix; ?>date_end" name="<?php echo $this->prefix; ?>date_end" value="<?php echo (isset($_GET[$this->prefix . 'date_end'])) ? $_GET[$this->prefix . 'date_end'] : ''; ?>" />
-						</div>
+		<div class="container">
+			<form class="advanced-nav-filters <?php if($_GET[$this->prefix]) echo 'active'; ?>">
+				<div class="four columns">
+					<input type="hidden" name="<?php echo $this->prefix; ?>" value="1" />
+					<div class="search-input adv-nav-input">
+						<!--
+						<p class="label"><label for="<?php echo $this->prefix; ?>s"><?php _e('Text search', 'infoamazonia'); ?></label></p>
+						-->
+						<input type="text" id="<?php echo $this->prefix; ?>s" name="<?php echo $this->prefix; ?>s" placeholder="<?php _e('Type your search here', 'infoamazonia'); ?>" value="<?php echo (isset($_GET[$this->prefix . 's'])) ? $_GET[$this->prefix . 's'] : ''; ?>" />
 					</div>
 				</div>
-			</div>
-			<div class="three columns filter-button">
-				<input type="submit" class="button" value="<?php _e('Filter', 'infoamazonia'); ?>" />
-			</div>
-		</form>
+				<div class="date-from-container three columns">
+					<label class="sublabel" for="<?php echo $this->prefix; ?>date_start"><?php _e('From', 'infoamazonia'); ?></label>
+					<input type="text" class="date-from" id="<?php echo $this->prefix; ?>date_start" name="<?php echo $this->prefix; ?>date_start" value="<?php echo (isset($_GET[$this->prefix . 'date_start'])) ? $_GET[$this->prefix . 'date_start'] : ''; ?>" />
+				</div>
+				<div class="date-to-container three columns">
+					<label class="sublabel" for="<?php echo $this->prefix; ?>date_end"><?php _e('To', 'infoamazonia'); ?></label>
+					<input type="text" class="date-to" id="<?php echo $this->prefix; ?>date_end" name="<?php echo $this->prefix; ?>date_end" value="<?php echo (isset($_GET[$this->prefix . 'date_end'])) ? $_GET[$this->prefix . 'date_end'] : ''; ?>" />
+				</div>
+				<div class="two columns filter-button">
+					<input type="submit" class="button" value="<?php _e('Filter', 'infoamazonia'); ?>" />
+				</div>
+			</form>
+		</div>
 		<script type="text/javascript">
 			(function($) {
 
@@ -162,7 +158,7 @@ class infoamazonia_AdvancedNav {
 						max = moment('<?= $after; ?>').toDate();
 					<?php endif; ?>
 
-					$('.date-range-inputs .date-from').datepicker({
+					$('.date-from').datepicker({
 						defaultDate: min,
 						changeMonth: true,
 						changeYear: true,
@@ -171,7 +167,7 @@ class infoamazonia_AdvancedNav {
 						minDate: min
 					});
 
-					$('.date-range-inputs .date-to').datepicker({
+					$('.date-to').datepicker({
 						defaultDate: max,
 						changeMonth: true,
 						changeYear: true,
