@@ -13,7 +13,7 @@
 						?>
 					</div>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
-					<h2 class="loop-post-title"><a href="<?php the_permalink(); ?>"><?php echo title(6); ?></a></h2>
+					<h2 class="loop-post-title"><a href="<?php the_permalink(); ?>"><?php echo title(10); ?></a></h2>
 				</header>
 				<div class="post-content">
 					<?php echo excerpt(20); ?>
