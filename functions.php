@@ -292,6 +292,44 @@ function custom_post_type() {
   );
   register_post_type( 'authors', $args );
 
+  $labels = array(
+    'name'                => _x( 'Publishers', 'Post Type General Name', 'infocongo' ),
+    'singular_name'       => _x( 'Publisher', 'Post Type Singular Name', 'infocongo' ),
+    'menu_name'           => __( 'Publishers', 'infocongo' ),
+    'name_admin_bar'      => __( 'Publishers', 'infocongo' ),
+    'parent_item_colon'   => __( 'Parent publisher:', 'infocongo' ),
+    'all_items'           => __( 'All publishers', 'infocongo' ),
+    'add_new_item'        => __( 'Add New publisher', 'infocongo' ),
+    'add_new'             => __( 'Add New', 'infocongo' ),
+    'new_item'            => __( 'New publisher', 'infocongo' ),
+    'edit_item'           => __( 'Edit publisher', 'infocongo' ),
+    'update_item'         => __( 'Update publisher', 'infocongo' ),
+    'view_item'           => __( 'View publisher', 'infocongo' ),
+    'search_items'        => __( 'Search publisher', 'infocongo' ),
+    'not_found'           => __( 'Not found', 'infocongo' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'infocongo' ),
+  );
+  $args = array(
+    'label'               => __( 'Publisher', 'infocongo' ),
+    'description'         => __( 'Publishers of the team', 'infocongo' ),
+    'labels'              => $labels,
+    'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'menu_position'       => 5,
+    'menu_icon'           => 'dashicons-media-document',
+    'show_in_admin_bar'   => true,
+    'show_in_nav_menus'   => true,
+    'can_export'          => true,
+    'has_archive'         => true,    
+    'exclude_from_search' => true,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+  );
+  register_post_type( 'publishers', $args );
+
 }
 add_action( 'init', 'custom_post_type', 0 );
 
