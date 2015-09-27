@@ -62,8 +62,8 @@ $json_conf = jeo_get_map_embed_conf();
 ?>
 
 <header id="embed-header">
-	<h1><a href="<?php echo home_url('/'); ?>" target="_blank"><?php bloginfo('name'); ?><span>&nbsp;</span></a></h1>
-	<h2 id="embed-title" style="display:none;"><?php echo $embed_title; ?></h2>
+	<h1 id="site-name"><a href="<?php echo home_url('/'); ?>" target="_blank"><?php bloginfo('name'); ?><span>&nbsp;</span></a></h1>
+	<h2 id="embed-title"><?php echo $embed_title; ?></h2>
 </header>
 
 <section id="embed-map">
