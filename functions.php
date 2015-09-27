@@ -59,6 +59,10 @@ function infocongo_scripts() {
 }
 add_action('wp_enqueue_scripts', 'infocongo_scripts', 10);
 
+
+// load translation file for the child theme
+  load_theme_textdomain('infocongo', get_stylesheet_directory() . '/languages');
+
 /*
  * JEO Hooks examples
  * Most common hooks
@@ -371,3 +375,29 @@ function my_remove_frontpage_map_query($query) {
 add_action('pre_get_posts', 'my_remove_frontpage_map_query');
 
 add_filter( 'rp4wp_append_content', '__return_false' );
+
+function ic_author_function($atts, $content = null) {
+   extract(shortcode_atts(array(
+      'name' => '',
+   ), $atts));
+
+   $return_string = '<h3>'.$content.'</h3>';
+   $return_string .= '<ul>';
+   query_posts(array(
+      'name' => $name,
+      'post_type'   => 'authors',
+      'numberposts' => 1
+    ));
+   if (have_posts()) :
+      while (have_posts()) : the_post();
+      $return_string .= '<div>'.get_the_post_thumbnail($post->ID, 'author-thumb').'</div>';
+         $return_string .= '<div>'.get_the_title().'</div>';
+         $return_string .= '<div>'.get_the_excerpt().'</div>';
+      endwhile;
+   endif;
+   $return_string .= '</ul>';
+
+   wp_reset_query();
+   return $return_string;
+}
+add_shortcode('author', 'ic_author_function');
