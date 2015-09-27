@@ -19,7 +19,13 @@
 				</div>
 				<div class="row post-meta">
 					<div class="ten offset-by-one columns ">
-						<div class="one-third column"><span class="icon_pencil"></span><span class="info"><b><?php echo get_the_date(); ?> | <?php echo get_the_term_list( $post->ID, 'publisher', ' ', ', ' ); ?></b></span></div>
+						<div class="one-third column"><span class="icon_pencil"></span>
+						<span class="info"><b>
+							<?php echo get_the_date(); ?>
+							<?php echo get_the_term_list( $post->ID, 'publisher', ' | ', ', ' ); ?> 
+							<?php echo ' <a> | </a>'; ?>
+							<?php $author_name =  the_author_posts_link( $user_id ); echo $author_name; ?>
+						</b></span></div>
 						<div class="one-third column"><span class="icon_pin_alt"></span><span class="info"><b><?php echo get_the_term_list( $post->ID, 'country', ' ', ', ' ); ?></b></span></div>
 						<div class="one-third column"><span class="icon_tag_alt"></span><span class="info"><b><?php echo get_the_term_list( $post->ID, 'topic', ' ', ', ' ); ?></b></span></div>
 					</div>
