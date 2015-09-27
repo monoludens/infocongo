@@ -31,8 +31,10 @@
 	});
 </script>
 <script>
-$(document).ready( function(){
-		var $et_top_menu = $( 'ul.nav' ),
+jQuery.noConflict();
+(function( $ ) {
+  $(function() {
+		var $et_top_menu = $( '.top-search' ),
 			$search_icon = $( '.icon_search' );
 
 		$search_icon.click( function() {
@@ -47,7 +49,7 @@ $(document).ready( function(){
 
 			$form.toggleClass( 'hidden' );
 		} );
-	})
+	})(jQuery);
 	</script>
 </head>
 <body <?php body_class(); ?>>
@@ -68,6 +70,14 @@ $(document).ready( function(){
 								<span><a href="?lang=en">en</a></span>
 								<span>|</span>
 								<span><a href="?lang=fr">fr</a></span>
+							</div>
+							<div class="social-icons">
+								<a href="http://facebook.com/InfoCongo.org">
+									<span class="social_facebook_square"></span>
+								</a>
+								<a href="http://twitter.com/Info_Congo">
+									<span class="social_twitter_square"></span>
+								</a>
 							</div>
 							<div id="top-search">
 								<span class="icon_search"></span>
