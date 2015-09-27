@@ -27,7 +27,7 @@ include(STYLESHEETPATH . '/inc/geocode-box.php');
 
  // Shares
 //include(STYLESHEETPATH . '/inc/shares.php');    
-
+  
 // Update shares on post view
 /*function publica_update_shares() {
   if(is_single()) {
@@ -134,6 +134,7 @@ function images_theme_setup() {
   add_image_size( 'loop-list', 300, 200, array( 'center', 'top' ));
   add_image_size( 'home-slider', 540, 200, array( 'center', 'top' ));
   add_image_size( 'archive-list', 220, 220, array( 'center', 'top' ));
+  add_image_size( 'author-thumb', 120, 120, array( 'center', 'top' ));
 
 }
 
@@ -169,7 +170,7 @@ function register_taxonomies() {
     'hierarchical'               => true,
     'show_admin_column'          => true,
     'capability_type'            => 'post',
-    'rewrite'                    => array('slug' => 'topic', 'with_front' => false),
+    'rewrite'                    => array('slug' => 'topic', 'with_front' => true),
     'query_var'                  => 'topic'
   );
   register_taxonomy( 'topic', array( 'post' ), $args );
@@ -202,7 +203,7 @@ function register_taxonomies() {
     'hierarchical'               => true,
     'show_admin_column'          => true,
     'capability_type'            => 'post',
-    'rewrite'                    => array('slug' => 'country', 'with_front' => false),
+    'rewrite'                    => array('slug' => 'country', 'with_front' => true),
     'query_var'                  => 'country'
   );
   register_taxonomy( 'country', array( 'post' ), $args );
@@ -235,47 +236,60 @@ function register_taxonomies() {
     'hierarchical'               => true,
     'show_admin_column'          => true,
     'capability_type'            => 'post',
-    'rewrite'                    => array('slug' => 'publisher', 'with_front' => false),
+    'rewrite'                    => array('slug' => 'publisher', 'with_front' => true),
     'query_var'                  => 'publisher'
   );
 
   register_taxonomy('publisher', array('post'), $args);
 
-    $labels = array(
-    'name'                       => _x( 'Authors', 'Taxonomy General Name', 'infocongo' ),
-    'singular_name'              => _x( 'Author', 'Taxonomy Singular Name', 'infocongo' ),
-    'menu_name'                  => __( 'Authors', 'infocongo' ),
-    'all_items'                  => __( 'All Authors', 'infocongo' ),
-    'parent_item'                => __( 'Parent Authors', 'infocongo' ),
-    'parent_item_colon'          => __( 'Parent Author:', 'infocongo' ),
-    'new_item_name'              => __( 'New Author Name', 'infocongo' ),
-    'add_new_item'               => __( 'Add New Author', 'infocongo' ),
-    'edit_item'                  => __( 'Edit Author', 'infocongo' ),
-    'update_item'                => __( 'Update Author', 'infocongo' ),
-    'view_item'                  => __( 'View Author', 'infocongo' ),
-    'separate_items_with_commas' => __( 'Separate Author with commas', 'infocongo' ),
-    'add_or_remove_items'        => __( 'Add or remove Author', 'infocongo' ),
-    'choose_from_most_used'      => __( 'Choose from the most used', 'infocongo' ),
-    'popular_items'              => __( 'Popular Authors', 'infocongo' ),
-    'search_items'               => __( 'Search Authors', 'infocongo' ),
-    'not_found'                  => __( 'Not Found', 'infocongo' ),
-  );
-  $args = array( 
-    'labels'                     => $labels,
-    'public'                     => true,
-    'show_in_nav_menus'          => true,
-    'show_ui'                    => true,
-    'show_tagcloud'              => true,
-    'hierarchical'               => true,
-    'show_admin_column'          => true,
-    'capability_type'            => 'post',
-    'rewrite'                    => array('slug' => 'author', 'with_front' => false),
-    'query_var'                  => 'author'
-  );
-  register_taxonomy( 'author', array( 'post' ), $args );
+    
 
 }
 add_action( 'jeo_init', 'register_taxonomies' );
+
+// Register Custom Post Type
+function custom_post_type() {
+
+  $labels = array(
+    'name'                => _x( 'Authors', 'Post Type General Name', 'infocongo' ),
+    'singular_name'       => _x( 'Author', 'Post Type Singular Name', 'infocongo' ),
+    'menu_name'           => __( 'Authors', 'infocongo' ),
+    'name_admin_bar'      => __( 'Authors', 'infocongo' ),
+    'parent_item_colon'   => __( 'Parent author:', 'infocongo' ),
+    'all_items'           => __( 'All authors', 'infocongo' ),
+    'add_new_item'        => __( 'Add New author', 'infocongo' ),
+    'add_new'             => __( 'Add New', 'infocongo' ),
+    'new_item'            => __( 'New author', 'infocongo' ),
+    'edit_item'           => __( 'Edit author', 'infocongo' ),
+    'update_item'         => __( 'Update author', 'infocongo' ),
+    'view_item'           => __( 'View author', 'infocongo' ),
+    'search_items'        => __( 'Search author', 'infocongo' ),
+    'not_found'           => __( 'Not found', 'infocongo' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'infocongo' ),
+  );
+  $args = array(
+    'label'               => __( 'Author', 'infocongo' ),
+    'description'         => __( 'Authors of the team', 'infocongo' ),
+    'labels'              => $labels,
+    'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'menu_position'       => 5,
+    'menu_icon'           => 'dashicons-admin-users',
+    'show_in_admin_bar'   => true,
+    'show_in_nav_menus'   => true,
+    'can_export'          => true,
+    'has_archive'         => true,    
+    'exclude_from_search' => true,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+  );
+  register_post_type( 'authors', $args );
+
+}
+add_action( 'init', 'custom_post_type', 0 );
 
 
 register_nav_menus( array(
@@ -348,3 +362,12 @@ function infocongo_submit_story() {
 }
 add_action('wp_enqueue_scripts', 'infocongo_submit_story', 100);
 
+
+function my_remove_frontpage_map_query($query) {
+  if(is_front_page()) {
+    $query->set('without_map_query', 1);
+  }
+}
+add_action('pre_get_posts', 'my_remove_frontpage_map_query');
+
+add_filter( 'rp4wp_append_content', '__return_false' );
