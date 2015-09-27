@@ -32,7 +32,23 @@
 	<div id="site-info">
 		<div class="container">
 			<div class="one-half columns">
-				<p class="colophon">site by<span></span><span class="cardume-logo"></span>code by<span class="oniricca-logo"></span></p>
+				<p class="colophon">
+					site by 
+					<span>
+						<a href="http://cardume.art.br">cardume </a>
+					</span>
+					<span class="cardume-logo"></span>
+					 - development by 
+					 <span>
+						 <a href="http://jeowp.org">JEO Beta</a>
+					 </span>
+					 <span class="jeo-logo"></span>
+					  <span> & </span> 
+					 <span>
+						 <a href="http://oniric.ca">oniricca</a>
+					 </span>
+					 <span class="oniricca-logo"></span>
+				 </p>
 			</div>
 			<div class="one-half columns">
 				<p class="footer-social-icons"></p>
