@@ -33,6 +33,18 @@
 							?>
 						</div>
 						<?php the_content(); ?>
+						<?php $value = get_field( "article_url" );
+							if( $value ) {   
+							    echo  '<p>Click <a href="' . $value . '">here</a> to read the original article. </p>';
+							} 
+						?>
+						<?php echo do_shortcode('[shareaholic app="share_buttons" id="19469300"]'); //share buttons ?>
+						<?php rp4wp_children(); //Related posts ?> 
+						<?php 
+							if ( comments_open() || get_comments_number() ) :
+								comments_template();
+							endif;
+						?>
 					</div>
 
 					<script type="text/javascript">
