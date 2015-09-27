@@ -31,40 +31,43 @@
 	});
 </script>
 <script>
-jQuery.noConflict();
-(function( $ ) {
-  $(function() {
-		var $et_top_menu = $( '.top-search' ),
-			$search_icon = $( '.icon_search' );
+jQuery(document).ready(function($) {
 
-		$search_icon.click( function() {
-			var $this_el = $(this),
-				$form = $this_el.siblings( '.search-form' );
+	var $et_top_menu = $( '#top-search' ),
+		$search_icon = $( '.icon_search' );
 
-			if ( $form.hasClass( 'hidden' ) ) {
-				$form.css( { 'display' : 'block', 'opacity' : 0 } ).animate( { opacity : 1 }, 500 );
-			} else {
-				$form.animate( { opacity : 0 }, 500 );
-			}
+	$search_icon.click( function() {
+		var $this_el = $(this),
+			$form = $this_el.siblings( '.search-form' );
 
-			$form.toggleClass( 'hidden' );
-		} );
-	})(jQuery);
-	</script>
+		if ( $form.hasClass( 'hidden' ) ) {
+			$form.css( { 'display' : 'block', 'opacity' : 0 } ).animate( { opacity : 1 }, 500 );
+		} else {
+			$form.animate( { opacity : 0 }, 500 );
+		}
+
+		$form.toggleClass( 'hidden' );
+	});
+});
+</script>
 </head>
 <body <?php body_class(); ?>>
 	<div id="site-wrapper">
 		<header id="main-header">
 			<div class="container">
 				<div class="row">
-					<div class="two columns">
+					<div class="three columns">
 						<span class="site-logo">
 							<a href="<?php echo home_url('/' . $lang); ?>" title="<?php echo bloginfo('name'); ?>">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-mini.png" class="logo" />
+							<?php if(is_home()) { ?>
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-mini.png" class="logo-mini" />
+							<?php } else { ?>
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-full.png" class="logo-full" />
+							<?php } ?>
 							</a>
 						</span>
 					</div>
-					<div class="ten columns">
+					<div class="nine columns">
 						<section id="main-nav">
 							<div class="languages">
 								<span><a href="?lang=en">en</a></span>
